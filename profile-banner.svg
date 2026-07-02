@@ -12,31 +12,31 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       font-weight: 600;
       font-size: 18px;
-      fill: #818cf8; /* Indigo accent */
+      fill: #facc15; /* Golden Yellow accent */
       letter-spacing: 0.5px;
     }
     .desc {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       font-weight: 400;
       font-size: 14px;
-      fill: #94a3b8;
+      fill: #cbd5e1; /* Light gray-lavender */
     }
     .tag {
       font-family: monospace;
       font-weight: bold;
       font-size: 13px;
-      fill: #38bdf8; /* Sky blue accent */
+      fill: #06b6d4; /* Vibrant Teal/Cyan accent */
     }
     .node {
-      fill: #090d16;
-      stroke: #38bdf8;
+      fill: #130f26;
+      stroke: #06b6d4;
       stroke-width: 2;
     }
     .node-center {
-      fill: #818cf8;
+      fill: #facc15;
     }
     .link {
-      stroke: #1e293b;
+      stroke: #2e2252;
       stroke-width: 1.5;
       stroke-dasharray: 4 2;
     }
@@ -45,32 +45,32 @@
   <!-- Background Gradients -->
   <defs>
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#05070f" />
-      <stop offset="100%" stop-color="#0c1020" />
+      <stop offset="0%" stop-color="#0f0920" />
+      <stop offset="100%" stop-color="#1c1236" />
     </linearGradient>
-    <radialGradient id="glow-indigo" cx="80%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#818cf8" stop-opacity="0" />
+    <radialGradient id="glow-purple" cx="80%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="glow-sky" cx="20%" cy="20%" r="55%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.1" />
-      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    <radialGradient id="glow-cyan" cx="20%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
     </radialGradient>
     <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1" fill="#1e293b" opacity="0.6" />
+      <circle cx="2" cy="2" r="1" fill="#4c3a85" opacity="0.4" />
     </pattern>
   </defs>
 
   <!-- Background -->
   <rect width="100%" height="100%" fill="url(#bg-grad)" />
-  <rect width="100%" height="100%" fill="url(#glow-indigo)" />
-  <rect width="100%" height="100%" fill="url(#glow-sky)" />
+  <rect width="100%" height="100%" fill="url(#glow-purple)" />
+  <rect width="100%" height="100%" fill="url(#glow-cyan)" />
   <rect width="100%" height="100%" fill="url(#dots)" />
 
   <!-- Bento Grid Decorative lines (Minimalist outline) -->
-  <path d="M 0,239 L 800,239" stroke="#1e293b" stroke-width="1" />
-  <path d="M 520,0 L 520,240" stroke="#1e293b" stroke-width="1" opacity="0.4" />
-  <path d="M 0,1 L 800,1" stroke="#1e293b" stroke-width="1" />
+  <path d="M 0,239 L 800,239" stroke="#2e2252" stroke-width="1" />
+  <path d="M 520,0 L 520,240" stroke="#2e2252" stroke-width="1" opacity="0.5" />
+  <path d="M 0,1 L 800,1" stroke="#2e2252" stroke-width="1" />
 
   <!-- Left Side: Typography -->
   <!-- Welcome Tag -->
@@ -80,11 +80,11 @@
   <text x="50" y="110" class="title">JOHN MARK CAYABYAB</text>
   
   <!-- Subtitle -->
-  <text x="50" y="146" class="subtitle">Full-Stack Developer &amp; CS Graduate</text>
+  <text x="50" y="146" class="subtitle">Full-Stack Developer &amp; UI/UX Designer</text>
   
   <!-- Short Desc -->
-  <text x="50" y="182" class="desc">Building clean software, optimizing data systems, and automating</text>
-  <text x="50" y="202" class="desc">workflows with robust, modern architectures.</text>
+  <text x="50" y="182" class="desc">Engineering robust applications, designing intuitive interfaces,</text>
+  <text x="50" y="202" class="desc">and building smooth, user-focused digital experiences.</text>
 
   <!-- Right Side: Bento / Network visual -->
   <g transform="translate(30, 0)">
@@ -107,6 +107,6 @@
     <circle cx="630" cy="110" r="4" class="node-center" />
     
     <!-- Little Bento outline on the side -->
-    <rect x="520" y="30" width="220" height="180" rx="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.3" />
+    <rect x="520" y="30" width="220" height="180" rx="8" fill="none" stroke="#2e2252" stroke-width="1.5" opacity="0.4" />
   </g>
 </svg>
