@@ -88,3 +88,14 @@
   <img src="./capabilities-widget.svg" alt="Core Capabilities" width="48%" />
   <img src="./project-highlight-widget.svg" alt="Featured Deployment" width="48%" />
 </p>
+
+<hr />
+
+<h3 align="center">🐍 Contribution Snake</h3>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Tofuwho/Tofuwho/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Tofuwho/Tofuwho/output/github-snake.svg" />
+    <img alt="Tofuwho's Contribution Snake" src="https://raw.githubusercontent.com/Tofuwho/Tofuwho/output/github-snake.svg" width="100%" />
+  </picture>
+</p>
