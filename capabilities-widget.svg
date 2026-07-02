@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
+  <style>
+    .card-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      fill: #facc15;
+      letter-spacing: 1.5px;
+    }
+    .label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      fill: #ffffff;
+    }
+    .value {
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 11px;
+      fill: #cbd5e1;
+    }
+    .bg-track {
+      fill: #221a3e;
+      rx: 3px;
+    }
+    .bar-teal {
+      fill: #06b6d4;
+      rx: 3px;
+    }
+    .bar-gold {
+      fill: #facc15;
+      rx: 3px;
+    }
+    .bar-purple {
+      fill: #a78bfa;
+      rx: 3px;
+    }
+  </style>
+
+  <rect width="100%" height="100%" fill="#130f26" stroke="#2e2252" stroke-width="1.5" rx="8" />
+  
+  <text x="20" y="28" class="card-title">CORE CAPABILITIES</text>
+  
+  <!-- Row 1: Full-Stack -->
+  <text x="20" y="55" class="label">Full-Stack Engineering</text>
+  <text x="325" y="55" class="value">92%</text>
+  <rect x="20" y="62" width="340" height="6" class="bg-track" />
+  <rect x="20" y="62" width="312.8" height="6" class="bar-teal" />
+
+  <!-- Row 2: UI/UX Design -->
+  <text x="20" y="90" class="label">UI/UX &amp; Interface Design</text>
+  <text x="325" y="90" class="value">88%</text>
+  <rect x="20" y="97" width="340" height="6" class="bg-track" />
+  <rect x="20" y="97" width="299.2" height="6" class="bar-gold" />
+
+  <!-- Row 3: Automation -->
+  <text x="20" y="125" class="label">Workflow &amp; System Automation</text>
+  <text x="325" y="125" class="value">95%</text>
+  <rect x="20" y="132" width="340" height="6" class="bg-track" />
+  <rect x="20" y="132" width="323" height="6" class="bar-purple" />
+</svg>

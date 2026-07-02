@@ -43,7 +43,7 @@
         <li>🎓 <strong>CS Graduate</strong> ('26, TCU) — Cumulative GWA: 1.65.</li>
         <li>🥇 <strong>1st Place</strong> CICT 2026 Research Festival (Principal Investigator) for optimizing operational data.</li>
         <li>💼 Engineered &amp; deployed a live, asynchronous <strong>Queue Management System (QMS)</strong> for TESDA.</li>
-        <li>🥈 <strong>1st Runner-Up</strong> TCU Systems Fair.</li>
+        <li>🥈 <strong>1st Runner-Up</strong> TCU Systems Fair Competition.</li>
       </ul>
     </td>
   </tr>
@@ -83,8 +83,8 @@
 
 <hr />
 
-<h3 align="center">📊 Activity &amp; Stats</h3>
+<h3 align="center">📊 Profile Showcases</h3>
 <p align="center">
-  <img src="https://github-stats-extended.vercel.app/api?username=Tofuwho&show_icons=true&bg_color=130f26&text_color=cbd5e1&title_color=facc15&icon_color=06b6d4&border_color=2e2252&hide_border=false" alt="John Mark's GitHub Stats" height="160px" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Tofuwho&background=130f26&ring=06b6d4&fire=facc15&currStreakNum=facc15&sideNums=ffffff&sideLabels=cbd5e1&dates=cbd5e1&stroke=2e2252" alt="John Mark's Streak Stats" height="160px" />
+  <img src="./capabilities-widget.svg" alt="Core Capabilities" width="48%" />
+  <img src="./project-highlight-widget.svg" alt="Featured Deployment" width="48%" />
 </p>

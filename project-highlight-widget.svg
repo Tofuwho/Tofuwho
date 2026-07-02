@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
+  <style>
+    .card-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      fill: #06b6d4;
+      letter-spacing: 1.5px;
+    }
+    .proj-name {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      fill: #ffffff;
+    }
+    .badge-bg {
+      fill: #1c1537;
+      stroke: #2e2252;
+      stroke-width: 1;
+      rx: 4px;
+    }
+    .badge-text {
+      font-family: monospace;
+      font-size: 10px;
+      fill: #cbd5e1;
+    }
+    .desc {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 11.5px;
+      fill: #cbd5e1;
+    }
+    .status-dot {
+      fill: #10b981; /* Green */
+    }
+    .status-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: bold;
+      font-size: 10px;
+      fill: #10b981;
+    }
+  </style>
+
+  <rect width="100%" height="100%" fill="#130f26" stroke="#2e2252" stroke-width="1.5" rx="8" />
+  
+  <text x="20" y="28" class="card-title">FEATURED DEPLOYMENT</text>
+  
+  <!-- Status indicator -->
+  <circle cx="310" cy="24" r="4" class="status-dot" />
+  <text x="320" y="28" class="status-text">LIVE</text>
+  
+  <!-- Project Title -->
+  <text x="20" y="55" class="proj-name">Queue Management System (QMS)</text>
+  
+  <!-- Description -->
+  <text x="20" y="78" class="desc">Asynchronous throughput system engineered for TESDA MPO</text>
+  <text x="20" y="94" class="desc">to streamline client flow and eliminate processing bottlenecks.</text>
+  
+  <!-- Tech badges -->
+  <g transform="translate(20, 112)">
+    <!-- Badge 1 -->
+    <rect x="0" y="0" width="70" height="20" class="badge-bg" />
+    <text x="35" y="13" class="badge-text" text-anchor="middle">Full-Stack</text>
+    
+    <!-- Badge 2 -->
+    <rect x="78" y="0" width="78" height="20" class="badge-bg" />
+    <text x="117" y="13" class="badge-text" text-anchor="middle">Async-Logic</text>
+    
+    <!-- Badge 3 -->
+    <rect x="164" y="0" width="78" height="20" class="badge-bg" />
+    <text x="203" y="13" class="badge-text" text-anchor="middle">High-Uptime</text>
+  </g>
+</svg>
