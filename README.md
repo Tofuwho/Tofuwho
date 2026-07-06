@@ -15,12 +15,12 @@
 <hr />
 
 <table width="100%">
-  <!-- Row 1: Intro Bento Card -->
+  <!-- Row 1: Intro Bento Card test commit -->
   <tr>
     <td colspan="2" valign="top">
       <h3>👋 About Me</h3>
       <p>
-        I'm a Computer Science graduate from <strong>Taguig City University</strong>. I enjoy combining full-stack development with a strong eye for UI/UX design to build functional systems. Whether it is deploying live queues for government agencies or building automation tools, I focus on performance, usability, and clean structure.
+        I'm a Computer Science graduate from <strong>Taguig City University</strong>. I enjoy combining full-stack development with a strong eye for UI/UX design to build functional systems. Whether it is deploying live queues for government agencies or building automation tools, I focus on performance, usability, and clean structure code.
       </p>
     </td>
   </tr>
