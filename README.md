@@ -20,7 +20,7 @@
     <td colspan="2" valign="top">
       <h3>👋 About Me</h3>
       <p>
-        I'm a Computer Science graduate from <strong>Taguig City University</strong>. I enjoy combining full-stack development with a strong eye for UI/UX design to build functional systems. Whether it is deploying live queues for government agencies or building automation tools, I focus on performance, usability, and clean structure code.
+        I'm a Computer Science graduate from <strong>Taguig City University</strong>. I enjoy combining full-stack development with a strong eye for UI/UX design to build functional systems. Whether it is deploying live queues for government agencies or building automation tools, I focus on performance, usability, and clean structure.
       </p>
     </td>
   </tr>
@@ -28,7 +28,7 @@
   <tr>
     <!-- What I Do Card -->
     <td width="55%" valign="top">
-      <h3>🚀 What I Do</h3>
+      <h3>What I Do</h3>
       <ul>
         <li><strong>Full-Stack Development:</strong> Building clean web applications using modular architectures.</li>
         <li><strong>UI/UX Design:</strong> Designing intuitive, modern user interfaces that are accessible and pleasant to navigate.</li>
@@ -38,12 +38,12 @@
     </td>
     <!-- Highlights Card -->
     <td width="45%" valign="top">
-      <h3>🏆 Highlights</h3>
+      <h3> Highlights</h3>
       <ul>
-        <li>🎓 <strong>CS Graduate</strong> ('26, TCU) — Cumulative GWA: 1.65.</li>
-        <li>🥇 <strong>1st Place</strong> CICT 2026 Research Festival (Principal Investigator) for optimizing operational data.</li>
-        <li>💼 Engineered &amp; deployed a live, asynchronous <strong>Queue Management System (QMS)</strong> for TESDA.</li>
-        <li>🥈 <strong>1st Runner-Up</strong> TCU Systems Fair Competition.</li>
+        <li> <strong>CS Graduate</strong> ('26, TCU) — Cumulative GWA: 1.65.</li>
+        <li> <strong>1st Place</strong> CICT 2026 Research Festival (Principal Investigator) for optimizing operational data.</li>
+        <li> Engineered &amp; deployed a live, asynchronous <strong>Queue Management System (QMS)</strong> for TESDA.</li>
+        <li> <strong>1st Runner-Up</strong> TCU Systems Fair Competition.</li>
       </ul>
     </td>
   </tr>
