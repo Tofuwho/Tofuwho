@@ -16,7 +16,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      # Generates a game graph, output a svg animation
+      # Generates a game gr, output a svg animation
       - name: Generate Snake
         uses: Platane/snk/svg-only@v3
         with:
