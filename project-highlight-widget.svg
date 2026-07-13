@@ -1,17 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
   <style>
-    @keyframes heartbeat {
-      0% {
-        stroke-dashoffset: 0;
-      }
-      100% {
-        stroke-dashoffset: -40;
-      }
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
     .font-sans {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
@@ -26,7 +14,7 @@
     }
     .proj-name {
       font-weight: 800;
-      font-size: 14px;
+      font-size: 15px;
       fill: #ffffff;
     }
     .badge-bg {
@@ -41,32 +29,8 @@
     }
     .desc {
       font-size: 11.5px;
-      fill: #94a3b8;
-    }
-    .status-dot {
-      fill: #10b981;
-      animation: pulse 1.8s infinite ease-in-out;
-    }
-    .status-text {
-      font-weight: bold;
-      font-size: 9px;
-      fill: #10b981;
-      letter-spacing: 0.5px;
-    }
-    .metric-label {
-      font-size: 8px;
-      fill: #64748b;
-    }
-    .metric-value {
-      font-size: 11px;
-      font-weight: bold;
-      fill: #ffffff;
-    }
-    .wave-line {
-      stroke: #06b6d4;
-      stroke-width: 1.5;
-      stroke-dasharray: 4 2;
-      animation: heartbeat 2s linear infinite;
+      fill: #cbd5e1;
+      line-height: 1.5;
     }
   </style>
 
@@ -76,42 +40,16 @@
   <!-- Header Separator -->
   <line x1="20" y1="36" x2="360" y2="36" stroke="#2e2252" stroke-width="0.8" opacity="0.5" />
 
-  <text x="20" y="26" class="font-sans card-title">FEATURED_DEPLOYMENT</text>
-  
-  <!-- Status indicator -->
-  <g transform="translate(315, 17)">
-    <rect width="45" height="16" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1" />
-    <circle cx="10" cy="8" r="3" class="status-dot" />
-    <text x="18" y="11" class="font-mono status-text">LIVE</text>
-  </g>
+  <text x="20" y="26" class="font-sans card-title">FEATURED_PROJECT</text>
   
   <!-- Project Title -->
-  <text x="20" y="54" class="font-sans proj-name">Queue Management System (QMS)</text>
+  <text x="20" y="56" class="font-sans proj-name">Queue Management System (QMS)</text>
   
   <!-- Description -->
-  <text x="20" y="72" class="font-sans desc">Electron desktop ticketing system engineered for TESDA MPO,</text>
-  <text x="20" y="88" class="font-sans desc">running an internal Express backend with MySQL database client.</text>
+  <text x="20" y="80" class="font-sans desc">A desktop-based queue tracking and ticketing application engineered</text>
+  <text x="20" y="98" class="font-sans desc">for TESDA MPO to streamline client registration, optimize office</text>
+  <text x="20" y="116" class="font-sans desc">service flows, and eliminate administrative bottlenecks.</text>
   
-  <!-- Metrics Dashboard Panel -->
-  <g transform="translate(20, 98)">
-    <rect x="0" y="0" width="340" height="32" rx="4" fill="#0f0c24" stroke="#2e2252" stroke-width="1" />
-    
-    <!-- Metric 1: Runtime -->
-    <text x="12" y="12" class="font-mono metric-label">RUNTIME</text>
-    <text x="12" y="24" class="font-mono metric-value">Electron</text>
-    
-    <!-- Metric 2: Engine -->
-    <text x="100" y="12" class="font-mono metric-label">ENGINE</text>
-    <text x="100" y="24" class="font-mono metric-value">Express</text>
-
-    <!-- Metric 3: Database -->
-    <text x="170" y="12" class="font-mono metric-label">DATABASE</text>
-    <text x="170" y="24" class="font-mono metric-value">MySQL/SQL.js</text>
-
-    <!-- Metric 4: Sine Wave Anim representing queue flow -->
-    <path d="M 240,16 Q 250,6 260,16 T 280,16 T 300,16 T 320,16" fill="none" class="wave-line" />
-  </g>
-
   <!-- Tech badges -->
   <g transform="translate(20, 138)">
     <!-- Badge 1 -->
@@ -122,14 +60,14 @@
     
     <!-- Badge 2 -->
     <g transform="translate(72, 0)">
-      <rect x="0" y="-8" width="60" height="16" class="badge-bg" stroke="#facc15" fill="#2d220a" />
-      <text x="30" y="3" class="font-mono badge-text" text-anchor="middle" fill="#facc15">Express</text>
+      <rect x="0" y="-8" width="56" height="16" class="badge-bg" stroke="#facc15" fill="#2d220a" />
+      <text x="28" y="3" class="font-mono badge-text" text-anchor="middle" fill="#facc15">SQLite</text>
     </g>
     
     <!-- Badge 3 -->
-    <g transform="translate(138, 0)">
-      <rect x="0" y="-8" width="56" height="16" class="badge-bg" stroke="#a78bfa" fill="#251a4a" />
-      <text x="28" y="3" class="font-mono badge-text" text-anchor="middle" fill="#a78bfa">MySQL</text>
+    <g transform="translate(134, 0)">
+      <rect x="0" y="-8" width="76" height="16" class="badge-bg" stroke="#a78bfa" fill="#251a4a" />
+      <text x="38" y="3" class="font-mono badge-text" text-anchor="middle" fill="#a78bfa">JavaScript</text>
     </g>
   </g>
 </svg>

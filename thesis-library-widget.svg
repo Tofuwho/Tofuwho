@@ -1,14 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
   <style>
-    @keyframes scan {
-      0% { transform: translateX(0px); }
-      50% { transform: translateX(80px); }
-      100% { transform: translateX(0px); }
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
     .font-sans {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
@@ -23,7 +14,7 @@
     }
     .proj-name {
       font-weight: 800;
-      font-size: 14px;
+      font-size: 15px;
       fill: #ffffff;
     }
     .badge-bg {
@@ -38,37 +29,8 @@
     }
     .desc {
       font-size: 11.5px;
-      fill: #94a3b8;
-    }
-    .status-dot {
-      fill: #06b6d4;
-      animation: pulse 1.8s infinite ease-in-out;
-    }
-    .status-text {
-      font-weight: bold;
-      font-size: 9px;
-      fill: #06b6d4;
-      letter-spacing: 0.5px;
-    }
-    .metric-label {
-      font-size: 8px;
-      fill: #64748b;
-    }
-    .metric-value {
-      font-size: 11px;
-      font-weight: bold;
-      fill: #ffffff;
-    }
-    .scan-box {
-      fill: #0f0c24;
-      stroke: #2e2252;
-      stroke-width: 1;
-      rx: 3px;
-    }
-    .scan-line {
-      stroke: #facc15;
-      stroke-width: 1.5;
-      animation: scan 3s infinite ease-in-out;
+      fill: #cbd5e1;
+      line-height: 1.5;
     }
   </style>
 
@@ -80,62 +42,32 @@
 
   <text x="20" y="26" class="font-sans card-title">FEATURED_PROJECT</text>
   
-  <!-- Status indicator -->
-  <g transform="translate(305, 17)">
-    <rect width="55" height="16" rx="8" fill="#1e1b4b" stroke="#06b6d4" stroke-width="1" />
-    <circle cx="10" cy="8" r="3" class="status-dot" />
-    <text x="18" y="11" class="font-mono status-text">ONLINE</text>
-  </g>
-  
   <!-- Project Title -->
-  <text x="20" y="54" class="font-sans proj-name">Thesis Library System</text>
+  <text x="20" y="56" class="font-sans proj-name">Thesis Library System</text>
   
   <!-- Description -->
-  <text x="20" y="72" class="font-sans desc">Centralized Django digital repository featuring PyMuPDF full-text extraction</text>
-  <text x="20" y="88" class="font-sans desc">and RapidFuzz fuzzy search matching for university academic research.</text>
+  <text x="20" y="80" class="font-sans desc">A centralized digital archiving platform built to manage, search,</text>
+  <text x="20" y="98" class="font-sans desc">and securely store academic research and graduate theses,</text>
+  <text x="20" y="116" class="font-sans desc">featuring automated text extraction and indexed querying.</text>
   
-  <!-- Metrics Dashboard Panel -->
-  <g transform="translate(20, 98)">
-    <rect x="0" y="0" width="340" height="32" rx="4" fill="#0f0c24" stroke="#2e2252" stroke-width="1" />
-    
-    <!-- Metric 1: Framework -->
-    <text x="12" y="12" class="font-mono metric-label">FRAMEWORK</text>
-    <text x="12" y="24" class="font-mono metric-value">Django</text>
-    
-    <!-- Metric 2: Database -->
-    <text x="95" y="12" class="font-mono metric-label">DATABASE</text>
-    <text x="95" y="24" class="font-mono metric-value">MySQL</text>
-
-    <!-- Metric 3: Search Library -->
-    <text x="165" y="12" class="font-mono metric-label">FUZZY_SEARCH</text>
-    <text x="165" y="24" class="font-mono metric-value">RapidFuzz/NLTK</text>
-
-    <!-- Mini Search Scan box representing database search -->
-    <g transform="translate(250, 6)">
-      <rect x="0" y="0" width="80" height="20" class="scan-box" />
-      <text x="8" y="13" class="font-mono" font-size="8" fill="#64748b">SEARCH...</text>
-      <line x1="0" y1="1" x2="0" y2="19" class="scan-line" />
-    </g>
-  </g>
-
   <!-- Tech badges -->
   <g transform="translate(20, 138)">
     <!-- Badge 1 -->
     <g transform="translate(0, 0)">
-      <rect x="0" y="-8" width="54" height="16" class="badge-bg" stroke="#06b6d4" fill="#15243b" />
-      <text x="27" y="3" class="font-mono badge-text" text-anchor="middle" fill="#06b6d4">Django</text>
+      <rect x="0" y="-8" width="54" height="16" class="badge-bg" />
+      <text x="27" y="3" class="font-mono badge-text" text-anchor="middle">Python</text>
     </g>
     
     <!-- Badge 2 -->
     <g transform="translate(60, 0)">
-      <rect x="0" y="-8" width="52" height="16" class="badge-bg" stroke="#10b981" fill="#0f261c" />
-      <text x="26" y="3" class="font-mono badge-text" text-anchor="middle" fill="#10b981">MySQL</text>
+      <rect x="0" y="-8" width="54" height="16" class="badge-bg" stroke="#facc15" fill="#2d220a" />
+      <text x="27" y="3" class="font-mono badge-text" text-anchor="middle" fill="#facc15">Django</text>
     </g>
     
     <!-- Badge 3 -->
-    <g transform="translate(118, 0)">
-      <rect x="0" y="-8" width="76" height="16" class="badge-bg" stroke="#facc15" fill="#2d220a" />
-      <text x="38" y="3" class="font-mono badge-text" text-anchor="middle" fill="#facc15">RapidFuzz</text>
+    <g transform="translate(120, 0)">
+      <rect x="0" y="-8" width="50" height="16" class="badge-bg" stroke="#10b981" fill="#0f261c" />
+      <text x="25" y="3" class="font-mono badge-text" text-anchor="middle" fill="#10b981">MySQL</text>
     </g>
   </g>
 </svg>
