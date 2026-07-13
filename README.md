@@ -14,6 +14,39 @@
 
 <hr />
 
+<!-- Promoted Tech Stack (Second Section) -->
+<h3 align="center">🛠️ Technical Stack &amp; Systems Architecture</h3>
+
+<table width="100%">
+  <tr>
+    <td width="25%" valign="top"><strong>Languages &amp; UI</strong></td>
+    <td width="75%">
+      <img src="https://img.shields.io/badge/Python-130F26?style=flat-square&logo=python&logoColor=06B6D4" alt="Python"/>
+      <img src="https://img.shields.io/badge/JavaScript-130F26?style=flat-square&logo=javascript&logoColor=FACC15" alt="JavaScript"/>
+      <img src="https://img.shields.io/badge/HTML5-130F26?style=flat-square&logo=html5&logoColor=06B6D4" alt="HTML5"/>
+      <img src="https://img.shields.io/badge/CSS3-130F26?style=flat-square&logo=css3&logoColor=a78bfa" alt="CSS3"/>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Data &amp; Operations</strong></td>
+    <td>
+      <img src="https://img.shields.io/badge/MySQL-130F26?style=flat-square&logo=mysql&logoColor=06B6D4" alt="MySQL"/>
+      <img src="https://img.shields.io/badge/MongoDB-130F26?style=flat-square&logo=mongodb&logoColor=10b981" alt="MongoDB"/>
+      <img src="https://img.shields.io/badge/Git-130F26?style=flat-square&logo=git&logoColor=a78bfa" alt="Git"/>
+      <img src="https://img.shields.io/badge/GitHub-130F26?style=flat-square&logo=github&logoColor=ffffff" alt="GitHub"/>
+      <img src="https://img.shields.io/badge/REST_APIs-130F26?style=flat-square&logo=postman&logoColor=06B6D4" alt="REST APIs"/>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>System Domains</strong></td>
+    <td>
+      <code>Asynchronous Throughput</code> &bull; <code>Queue Processing (QMS)</code> &bull; <code>UI/UX Design Systems</code> &bull; <code>Hardware Audits</code> &bull; <code>Network Routing</code>
+    </td>
+  </tr>
+</table>
+
+<hr />
+
 <table width="100%">
   <!-- Row 1: Profile Brief -->
   <tr>
@@ -46,29 +79,9 @@
       </ul>
     </td>
   </tr>
-  <!-- Row 3: Tech Toolbox & Connect -->
+  <!-- Row 3: Connect -->
   <tr>
-    <!-- Toolbox Card -->
-    <td valign="top">
-      <h3>🛠️ Technical Stack</h3>
-      <p><strong>Languages &amp; Frameworks:</strong></p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-130F26?style=flat-square&logo=python&logoColor=06B6D4" alt="Python"/>
-        <img src="https://img.shields.io/badge/JavaScript-130F26?style=flat-square&logo=javascript&logoColor=FACC15" alt="JavaScript"/>
-        <img src="https://img.shields.io/badge/HTML5-130F26?style=flat-square&logo=html5&logoColor=06B6D4" alt="HTML5"/>
-        <img src="https://img.shields.io/badge/CSS3-130F26?style=flat-square&logo=css3&logoColor=a78bfa" alt="CSS3"/>
-      </p>
-      <p><strong>Data &amp; Infrastructure:</strong></p>
-      <p>
-        <img src="https://img.shields.io/badge/MySQL-130F26?style=flat-square&logo=mysql&logoColor=06B6D4" alt="MySQL"/>
-        <img src="https://img.shields.io/badge/MongoDB-130F26?style=flat-square&logo=mongodb&logoColor=10b981" alt="MongoDB"/>
-        <img src="https://img.shields.io/badge/Git-130F26?style=flat-square&logo=git&logoColor=a78bfa" alt="Git"/>
-        <img src="https://img.shields.io/badge/GitHub-130F26?style=flat-square&logo=github&logoColor=ffffff" alt="GitHub"/>
-        <img src="https://img.shields.io/badge/REST_APIs-130F26?style=flat-square&logo=postman&logoColor=06B6D4" alt="REST APIs"/>
-      </p>
-    </td>
-    <!-- Connect Card -->
-    <td valign="top">
+    <td colspan="2" valign="top">
       <h3>📫 Connection Gateway</h3>
       <p>Feel free to reach out to collaborate on systems engineering, discuss dashboard designs, or talk automation:</p>
       <ul>
@@ -84,8 +97,11 @@
 
 <h3 align="center">📊 Profile Showcases</h3>
 <p align="center">
-  <img src="./capabilities-widget.svg" alt="Core Capabilities" width="49%" />
-  <img src="./project-highlight-widget.svg" alt="Featured Deployment" width="49%" />
+  <img src="./capabilities-widget.svg" alt="Core Capabilities" width="98%" />
+</p>
+<p align="center">
+  <img src="./project-highlight-widget.svg" alt="Featured Deployment - Queue Management System" width="49%" />
+  <img src="./thesis-library-widget.svg" alt="Featured Project - Thesis Library System" width="49%" />
 </p>
 
 <hr />
