@@ -19,7 +19,7 @@
 
 <table width="100%">
   <tr>
-    <td width="25%" valign="top"><strong>Languages &amp; UI</strong></td>
+    <td width="25%" valign="top"><strong>Languages &amp; Core</strong></td>
     <td width="75%">
       <img src="https://img.shields.io/badge/Python-130F26?style=flat-square&logo=python&logoColor=06B6D4" alt="Python"/>
       <img src="https://img.shields.io/badge/JavaScript-130F26?style=flat-square&logo=javascript&logoColor=FACC15" alt="JavaScript"/>
@@ -28,19 +28,27 @@
     </td>
   </tr>
   <tr>
+    <td valign="top"><strong>Frameworks &amp; Runtimes</strong></td>
+    <td>
+      <img src="https://img.shields.io/badge/Django-130F26?style=flat-square&logo=django&logoColor=10b981" alt="Django"/>
+      <img src="https://img.shields.io/badge/Electron-130F26?style=flat-square&logo=electron&logoColor=06b6d4" alt="Electron"/>
+      <img src="https://img.shields.io/badge/Express-130F26?style=flat-square&logo=express&logoColor=facc15" alt="Express"/>
+    </td>
+  </tr>
+  <tr>
     <td valign="top"><strong>Data &amp; Operations</strong></td>
     <td>
       <img src="https://img.shields.io/badge/MySQL-130F26?style=flat-square&logo=mysql&logoColor=06B6D4" alt="MySQL"/>
-      <img src="https://img.shields.io/badge/MongoDB-130F26?style=flat-square&logo=mongodb&logoColor=10b981" alt="MongoDB"/>
+      <img src="https://img.shields.io/badge/SQLite-130F26?style=flat-square&logo=sqlite&logoColor=06B6D4" alt="SQLite"/>
       <img src="https://img.shields.io/badge/Git-130F26?style=flat-square&logo=git&logoColor=a78bfa" alt="Git"/>
       <img src="https://img.shields.io/badge/GitHub-130F26?style=flat-square&logo=github&logoColor=ffffff" alt="GitHub"/>
       <img src="https://img.shields.io/badge/REST_APIs-130F26?style=flat-square&logo=postman&logoColor=06B6D4" alt="REST APIs"/>
     </td>
   </tr>
   <tr>
-    <td valign="top"><strong>System Domains</strong></td>
+    <td valign="top"><strong>Systems &amp; Libraries</strong></td>
     <td>
-      <code>Asynchronous Throughput</code> &bull; <code>Queue Processing (QMS)</code> &bull; <code>UI/UX Design Systems</code> &bull; <code>Hardware Audits</code> &bull; <code>Network Routing</code>
+      <code>Asynchronous Queuing</code> &bull; <code>RapidFuzz String Matching</code> &bull; <code>PyMuPDF Document Analysis</code> &bull; <code>Hardware Audits</code> &bull; <code>Network Routing</code>
     </td>
   </tr>
 </table>
