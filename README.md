@@ -18,22 +18,7 @@
 <h3 align="center">🛠️ Technical Stack &amp; Systems Architecture</h3>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-130F26?style=for-the-badge&logo=python&logoColor=06B6D4" alt="Python"/>
-  <img src="https://img.shields.io/badge/JavaScript-130F26?style=for-the-badge&logo=javascript&logoColor=FACC15" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/HTML5-130F26?style=for-the-badge&logo=html5&logoColor=06B6D4" alt="HTML5"/>
-  <img src="https://img.shields.io/badge/CSS3-130F26?style=for-the-badge&logo=css3&logoColor=a78bfa" alt="CSS3"/>
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/Django-130F26?style=for-the-badge&logo=django&logoColor=10b981" alt="Django"/>
-  <img src="https://img.shields.io/badge/Electron-130F26?style=for-the-badge&logo=electron&logoColor=06b6d4" alt="Electron"/>
-  <img src="https://img.shields.io/badge/Express-130F26?style=for-the-badge&logo=express&logoColor=facc15" alt="Express"/>
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/MySQL-130F26?style=for-the-badge&logo=mysql&logoColor=06B6D4" alt="MySQL"/>
-  <img src="https://img.shields.io/badge/SQLite-130F26?style=for-the-badge&logo=sqlite&logoColor=06B6D4" alt="SQLite"/>
-  <img src="https://img.shields.io/badge/Git-130F26?style=for-the-badge&logo=git&logoColor=a78bfa" alt="Git"/>
-  <img src="https://img.shields.io/badge/GitHub-130F26?style=for-the-badge&logo=github&logoColor=ffffff" alt="GitHub"/>
-  <img src="https://img.shields.io/badge/Postman-130F26?style=for-the-badge&logo=postman&logoColor=06B6D4" alt="Postman"/>
+  <img src="https://skillicons.dev/icons?i=python,js,html,css,django,electron,express,mysql,sqlite,git,github,postman" alt="My Skills" />
 </p>
 <p align="center">
   <code>Asynchronous Queuing</code> &bull; <code>RapidFuzz String Matching</code> &bull; <code>PyMuPDF Document Analysis</code> &bull; <code>Hardware Audits</code> &bull; <code>Network Routing</code>
