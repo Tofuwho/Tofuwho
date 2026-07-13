@@ -1,72 +1,135 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
   <style>
-    .card-title {
+    @keyframes heartbeat {
+      0% {
+        stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: -40;
+      }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    .font-sans {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .font-mono {
+      font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .card-title {
       font-weight: 700;
-      font-size: 11px;
+      font-size: 10px;
       fill: #06b6d4;
       letter-spacing: 1.5px;
     }
     .proj-name {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-weight: 800;
-      font-size: 15px;
+      font-size: 14px;
       fill: #ffffff;
     }
     .badge-bg {
-      fill: #1c1537;
-      stroke: #2e2252;
+      fill: #1e1b4b;
+      stroke: #06b6d4;
       stroke-width: 1;
       rx: 4px;
     }
     .badge-text {
-      font-family: monospace;
-      font-size: 10px;
+      font-size: 9px;
       fill: #cbd5e1;
     }
     .desc {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 11.5px;
-      fill: #cbd5e1;
+      fill: #94a3b8;
     }
     .status-dot {
-      fill: #10b981; /* Green */
+      fill: #10b981;
+      animation: pulse 1.8s infinite ease-in-out;
     }
     .status-text {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-weight: bold;
-      font-size: 10px;
+      font-size: 9px;
       fill: #10b981;
+      letter-spacing: 0.5px;
+    }
+    .metric-label {
+      font-size: 8px;
+      fill: #64748b;
+    }
+    .metric-value {
+      font-size: 11px;
+      font-weight: bold;
+      fill: #ffffff;
+    }
+    .wave-line {
+      stroke: #06b6d4;
+      stroke-width: 1.5;
+      stroke-dasharray: 4 2;
+      animation: heartbeat 2s linear infinite;
     }
   </style>
 
+  <!-- Container Box -->
   <rect width="100%" height="100%" fill="#130f26" stroke="#2e2252" stroke-width="1.5" rx="8" />
   
-  <text x="20" y="28" class="card-title">FEATURED DEPLOYMENT</text>
+  <!-- Header Separator -->
+  <line x1="20" y1="36" x2="360" y2="36" stroke="#2e2252" stroke-width="0.8" opacity="0.5" />
+
+  <text x="20" y="26" class="font-sans card-title">FEATURED_DEPLOYMENT</text>
   
   <!-- Status indicator -->
-  <circle cx="310" cy="24" r="4" class="status-dot" />
-  <text x="320" y="28" class="status-text">LIVE</text>
+  <g transform="translate(315, 17)">
+    <rect width="45" height="16" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1" />
+    <circle cx="10" cy="8" r="3" class="status-dot" />
+    <text x="18" y="11" class="font-mono status-text">LIVE</text>
+  </g>
   
   <!-- Project Title -->
-  <text x="20" y="55" class="proj-name">Queue Management System (QMS)</text>
+  <text x="20" y="54" class="font-sans proj-name">Queue Management System (QMS)</text>
   
   <!-- Description -->
-  <text x="20" y="78" class="desc">Asynchronous throughput system engineered for TESDA MPO</text>
-  <text x="20" y="94" class="desc">to streamline client flow and eliminate processing bottlenecks.</text>
+  <text x="20" y="72" class="font-sans desc">Asynchronous throughput engine engineered for TESDA MPO</text>
+  <text x="20" y="88" class="font-sans desc">to streamline client flow and eliminate processing bottlenecks.</text>
   
+  <!-- Metrics Dashboard Panel -->
+  <g transform="translate(20, 98)">
+    <rect x="0" y="0" width="340" height="32" rx="4" fill="#0f0c24" stroke="#2e2252" stroke-width="1" />
+    
+    <!-- Metric 1: Throughput -->
+    <text x="12" y="12" class="font-mono metric-label">THROUGHPUT</text>
+    <text x="12" y="24" class="font-mono metric-value">1,200+/day</text>
+    
+    <!-- Metric 2: Uptime -->
+    <text x="100" y="12" class="font-mono metric-label">UPTIME</text>
+    <text x="100" y="24" class="font-mono metric-value">99.98%</text>
+
+    <!-- Metric 3: Latency -->
+    <text x="170" y="12" class="font-mono metric-label">LATENCY</text>
+    <text x="170" y="24" class="font-mono metric-value">&lt;120ms</text>
+
+    <!-- Metric 4: Sine Wave Anim representing queue flow -->
+    <path d="M 240,16 Q 250,6 260,16 T 280,16 T 300,16 T 320,16" fill="none" class="wave-line" />
+  </g>
+
   <!-- Tech badges -->
-  <g transform="translate(20, 112)">
+  <g transform="translate(20, 138)">
     <!-- Badge 1 -->
-    <rect x="0" y="0" width="70" height="20" class="badge-bg" />
-    <text x="35" y="13" class="badge-text" text-anchor="middle">Full-Stack</text>
+    <g transform="translate(0, 0)">
+      <rect x="0" y="-8" width="66" height="16" class="badge-bg" />
+      <text x="33" y="3" class="font-mono badge-text" text-anchor="middle">Full-Stack</text>
+    </g>
     
     <!-- Badge 2 -->
-    <rect x="78" y="0" width="78" height="20" class="badge-bg" />
-    <text x="117" y="13" class="badge-text" text-anchor="middle">Async-Logic</text>
+    <g transform="translate(72, 0)">
+      <rect x="0" y="-8" width="76" height="16" class="badge-bg" stroke="#facc15" fill="#2d220a" />
+      <text x="38" y="3" class="font-mono badge-text" text-anchor="middle" fill="#facc15">Async-Queue</text>
+    </g>
     
     <!-- Badge 3 -->
-    <rect x="164" y="0" width="78" height="20" class="badge-bg" />
-    <text x="203" y="13" class="badge-text" text-anchor="middle">High-Uptime</text>
+    <g transform="translate(154, 0)">
+      <rect x="0" y="-8" width="76" height="16" class="badge-bg" stroke="#a78bfa" fill="#251a4a" />
+      <text x="38" y="3" class="font-mono badge-text" text-anchor="middle" fill="#a78bfa">High-Uptime</text>
+    </g>
   </g>
 </svg>

@@ -1,61 +1,102 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
   <style>
-    .card-title {
+    .font-sans {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .font-mono {
+      font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .card-title {
       font-weight: 700;
-      font-size: 11px;
+      font-size: 10px;
       fill: #facc15;
       letter-spacing: 1.5px;
     }
     .label {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-weight: 600;
       font-size: 12px;
       fill: #ffffff;
     }
     .value {
-      font-family: monospace;
+      font-size: 10px;
       font-weight: bold;
-      font-size: 11px;
       fill: #cbd5e1;
     }
     .bg-track {
-      fill: #221a3e;
+      fill: #0c081d;
+      stroke: #2e2252;
+      stroke-width: 1;
       rx: 3px;
     }
-    .bar-teal {
-      fill: #06b6d4;
+    .bar-cyan {
+      fill: url(#cyan-grad);
       rx: 3px;
     }
     .bar-gold {
-      fill: #facc15;
+      fill: url(#gold-grad);
       rx: 3px;
     }
     .bar-purple {
-      fill: #a78bfa;
+      fill: url(#purple-grad);
       rx: 3px;
+    }
+    .tick-mark {
+      stroke: #2e2252;
+      stroke-width: 0.8;
     }
   </style>
 
+  <defs>
+    <!-- Sleek metallic gradients for bars -->
+    <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#083344" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#451a03" />
+      <stop offset="100%" stop-color="#facc15" />
+    </linearGradient>
+    <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2e1065" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+  </defs>
+
+  <!-- Container Box -->
   <rect width="100%" height="100%" fill="#130f26" stroke="#2e2252" stroke-width="1.5" rx="8" />
   
-  <text x="20" y="28" class="card-title">CORE CAPABILITIES</text>
+  <!-- Grid background details inside widget -->
+  <line x1="20" y1="36" x2="360" y2="36" stroke="#2e2252" stroke-width="0.8" opacity="0.5" />
+
+  <text x="20" y="26" class="font-sans card-title">SYSTEM_CAPABILITIES</text>
   
   <!-- Row 1: Full-Stack -->
-  <text x="20" y="55" class="label">Full-Stack Engineering</text>
-  <text x="325" y="55" class="value">92%</text>
-  <rect x="20" y="62" width="340" height="6" class="bg-track" />
-  <rect x="20" y="62" width="312.8" height="6" class="bar-teal" />
+  <text x="20" y="52" class="font-sans label">Full-Stack Engineering</text>
+  <text x="360" y="52" class="font-mono value" text-anchor="end">92% [STABLE]</text>
+  <rect x="20" y="59" width="340" height="6" class="bg-track" />
+  <rect x="20" y="59" width="312.8" height="6" class="bar-cyan" />
+  <!-- Slider handle visual indicator -->
+  <rect x="330" y="56" width="3" height="12" rx="1.5" fill="#ffffff" opacity="0.9" />
+  <!-- Ticks underneath -->
+  <path d="M 20,68 L 20,71 M 105,68 L 105,71 M 190,68 L 190,71 M 275,68 L 275,71 M 360,68 L 360,71" class="tick-mark" />
 
   <!-- Row 2: UI/UX Design -->
-  <text x="20" y="90" class="label">UI/UX &amp; Interface Design</text>
-  <text x="325" y="90" class="value">88%</text>
-  <rect x="20" y="97" width="340" height="6" class="bg-track" />
-  <rect x="20" y="97" width="299.2" height="6" class="bar-gold" />
+  <text x="20" y="87" class="font-sans label">UI/UX &amp; Interface Design</text>
+  <text x="360" y="87" class="font-mono value" text-anchor="end">88% [OPTIMAL]</text>
+  <rect x="20" y="94" width="340" height="6" class="bg-track" />
+  <rect x="20" y="94" width="299.2" height="6" class="bar-gold" />
+  <!-- Slider handle visual indicator -->
+  <rect x="316" y="91" width="3" height="12" rx="1.5" fill="#ffffff" opacity="0.9" />
+  <!-- Ticks underneath -->
+  <path d="M 20,103 L 20,106 M 105,103 L 105,106 M 190,103 L 190,106 M 275,103 L 275,106 M 360,103 L 360,106" class="tick-mark" />
 
   <!-- Row 3: Automation -->
-  <text x="20" y="125" class="label">Workflow &amp; System Automation</text>
-  <text x="325" y="125" class="value">95%</text>
-  <rect x="20" y="132" width="340" height="6" class="bg-track" />
-  <rect x="20" y="132" width="323" height="6" class="bar-purple" />
+  <text x="20" y="122" class="font-sans label">Workflow &amp; System Automation</text>
+  <text x="360" y="122" class="font-mono value" text-anchor="end">95% [STABLE]</text>
+  <rect x="20" y="129" width="340" height="6" class="bg-track" />
+  <rect x="20" y="129" width="323" height="6" class="bar-purple" />
+  <!-- Slider handle visual indicator -->
+  <rect x="340" y="126" width="3" height="12" rx="1.5" fill="#ffffff" opacity="0.9" />
+  <!-- Ticks underneath -->
+  <path d="M 20,138 L 20,141 M 105,138 L 105,141 M 190,138 L 190,141 M 275,138 L 275,141 M 360,138 L 360,141" class="tick-mark" />
 </svg>
