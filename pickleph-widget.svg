@@ -47,7 +47,7 @@
   
   <!-- Description -->
   <text x="20" y="80" class="font-sans desc">A court booking and game finder platform for Pickleball</text>
-  <text x="20" y="98" class="font-sans desc">players in Metro Manila — browse available courts,</text>
+  <text x="20" y="98" class="font-sans desc">players in Metro Manila &#x2014; browse available courts,</text>
   <text x="20" y="116" class="font-sans desc">schedule sessions, and connect with local players.</text>
   
   <!-- Tech badges -->

@@ -93,22 +93,30 @@
 ---
 
 <!-- ═══════════════════ FEATURED PROJECTS ═══════════════════ -->
-<h3 align="center">🚀 Featured Projects</h3>
+<h3 align="center">🚀 Featured Repositories</h3>
+
+<table width="100%">
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <a href="https://github.com/Tofuwho/ELYSEE">
+        <img src="./elysee-widget.svg" alt="ELYSEE — Luxury Product Landing Page" width="100%" />
+      </a>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <a href="https://github.com/Tofuwho/Kalinga">
+        <img src="./kalinga-widget.svg" alt="Kalinga — OFW Distance-Parenting App" width="100%" />
+      </a>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <a href="https://github.com/Tofuwho/PicklePH">
+        <img src="./pickleph-widget.svg" alt="PicklePH — Court Booking Platform" width="100%" />
+      </a>
+    </td>
+  </tr>
+</table>
 
 <p align="center">
-  <a href="https://github.com/Tofuwho/ELYSEE">
-    <img src="./elysee-widget.svg" alt="ELYSEE — Luxury Product Landing Page" width="32%" />
-  </a>
-  <a href="https://github.com/Tofuwho/Kalinga">
-    <img src="./kalinga-widget.svg" alt="Kalinga — OFW Distance-Parenting App" width="32%" />
-  </a>
-  <a href="https://github.com/Tofuwho/PicklePH">
-    <img src="./pickleph-widget.svg" alt="PicklePH — Court Booking Platform" width="32%" />
-  </a>
-</p>
-
-<p align="center">
-  <em>Click any card above to view the repository →</em>
+  <em>Click any project card above to explore the repository →</em>
 </p>
 
 ---
@@ -116,7 +124,7 @@
 <!-- ═══════════════════ CAPABILITIES ═══════════════════ -->
 <h3 align="center">📊 System Capabilities</h3>
 <p align="center">
-  <img src="./capabilities-widget.svg" alt="Core Capabilities" width="98%" />
+  <img src="./capabilities-widget.svg" alt="Core Capabilities" width="100%" />
 </p>
 
 ---
@@ -136,7 +144,7 @@
 ---
 
 <!-- ═══════════════════ CONTRIBUTION SNAKE ═══════════════════ -->
-<h3 align="center">🐍 Contribution Snake</h3>
+<h3 align="center">🐍 Contribution Activity</h3>
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Tofuwho/Tofuwho/output/github-snake-dark.svg" />
