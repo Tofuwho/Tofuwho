@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 240" width="100%" height="100%">
   <!-- Style block for custom fonts and transitions -->
   <style>
     @keyframes flow {
@@ -10,6 +10,10 @@
       0%, 100% { opacity: 0.6; }
       50% { opacity: 1; }
     }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
     .font-sans {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     }
@@ -18,20 +22,20 @@
     }
     .title {
       font-weight: 800;
-      font-size: 34px;
+      font-size: 32px;
       fill: #ffffff;
       letter-spacing: -0.5px;
     }
     .subtitle {
       font-weight: 600;
-      font-size: 16px;
+      font-size: 14px;
       fill: #facc15;
       letter-spacing: 0.5px;
     }
     .desc {
       font-weight: 400;
-      font-size: 13.5px;
-      fill: #94a3b8; /* Slate 400 */
+      font-size: 12.5px;
+      fill: #94a3b8;
     }
     .tag {
       font-weight: bold;
@@ -90,6 +94,12 @@
       font-size: 9px;
       fill: #475569;
     }
+    .avatar-ring {
+      fill: none;
+      stroke-width: 2;
+      stroke-dasharray: 4 3;
+      animation: flow 3s linear infinite;
+    }
   </style>
 
   <!-- Background Gradients -->
@@ -111,6 +121,10 @@
       <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#231b46" stroke-width="0.8" stroke-opacity="0.6" />
       <circle cx="0" cy="0" r="1" fill="#4c3a85" opacity="0.5" />
     </pattern>
+    <!-- Avatar clip path -->
+    <clipPath id="avatar-clip">
+      <circle cx="72" cy="120" r="42" />
+    </clipPath>
   </defs>
 
   <!-- Background Layer -->
@@ -120,7 +134,6 @@
   <rect width="100%" height="100%" fill="url(#grid)" />
 
   <!-- Coordinates & Blueprint Details -->
-  <!-- Top/Bottom boundary lines -->
   <line x1="0" y1="1" x2="800" y2="1" stroke="#2e2252" stroke-width="1.2" />
   <line x1="0" y1="239" x2="800" y2="239" stroke="#2e2252" stroke-width="1.2" />
   
@@ -132,26 +145,49 @@
   <text x="500" y="14" class="font-mono coordinate-text" text-anchor="middle">500_PX</text>
   <text x="700" y="14" class="font-mono coordinate-text" text-anchor="middle">700_PX</text>
 
-  <!-- Left Side: Professional Profile Text -->
-  <!-- Hello pill tag -->
-  <g transform="translate(50, 42)">
-    <rect x="0" y="0" width="112" height="20" rx="10" class="tag-border" />
+  <!-- Left Side: Avatar -->
+  <g transform="translate(0, 0)">
+    <!-- Avatar background circle -->
+    <circle cx="72" cy="120" r="46" fill="#0f0c24" stroke="#2e2252" stroke-width="1.5" />
+    <!-- Avatar image -->
+    <image x="30" y="78" width="84" height="84" clip-path="url(#avatar-clip)" href="https://github.com/Tofuwho.png" preserveAspectRatio="xMidYMid slice" />
+    <!-- Animated ring -->
+    <circle cx="72" cy="120" r="46" class="avatar-ring" stroke="#06b6d4" />
+    <circle cx="72" cy="120" r="50" class="avatar-ring" stroke="#a78bfa" opacity="0.4" />
+  </g>
+
+  <!-- Center: Professional Profile Text -->
+  <!-- Status pill tag -->
+  <g transform="translate(138, 42)">
+    <rect x="0" y="0" width="145" height="20" rx="10" class="tag-border" />
     <circle cx="10" cy="10" r="3.5" fill="#06b6d4" class="pulse-dot" />
-    <text x="22" y="13.5" class="font-mono tag">NODE_ONLINE</text>
+    <text x="22" y="13.5" class="font-mono tag">OPEN_TO_WORK</text>
   </g>
   
   <!-- Name Title -->
-  <text x="50" y="98" class="font-sans title">JOHN MARK CAYABYAB</text>
+  <text x="138" y="98" class="font-sans title">JOHN MARK CAYABYAB</text>
   
   <!-- Subtitle -->
-  <text x="50" y="132" class="font-sans subtitle">Systems Engineer &amp; Full-Stack Developer</text>
+  <text x="138" y="126" class="font-sans subtitle">Full-Stack Developer · Systems Architect · UI/UX Designer</text>
   
   <!-- Description -->
-  <text x="50" y="166" class="font-sans desc">Designing modular, high-reliability software from database models</text>
-  <text x="50" y="186" class="font-sans desc">to clean user interfaces. Specializing in workflow automation.</text>
+  <text x="138" y="155" class="font-sans desc">CS Graduate (GWA 1.65) with production deployment experience.</text>
+  <text x="138" y="173" class="font-sans desc">Building automated systems, web apps, and AI-integrated workflows.</text>
+
+  <!-- Location & contact indicators -->
+  <g transform="translate(138, 192)">
+    <rect x="0" y="0" width="100" height="18" rx="9" fill="#1e1b4b" stroke="#2e2252" stroke-width="1" />
+    <circle cx="10" cy="9" r="2.5" fill="#10b981" class="pulse-dot" />
+    <text x="20" y="13" class="font-mono" font-size="9" fill="#94a3b8">NCR, Philippines</text>
+  </g>
+  <g transform="translate(248, 192)">
+    <rect x="0" y="0" width="126" height="18" rx="9" fill="#1e1b4b" stroke="#2e2252" stroke-width="1" />
+    <circle cx="10" cy="9" r="2.5" fill="#facc15" />
+    <text x="20" y="13" class="font-mono" font-size="9" fill="#94a3b8">jcayabyab655@gmail</text>
+  </g>
 
   <!-- Right Side: Bento System Architecture Visualization -->
-  <g transform="translate(490, 24)">
+  <g transform="translate(500, 24)">
     <!-- Glassmorphic Container Panel -->
     <rect x="0" y="0" width="260" height="192" rx="12" class="panel-bg" />
     
@@ -160,7 +196,7 @@
     <circle cx="12" cy="13" r="3" fill="#ef4444" />
     <circle cx="22" cy="13" r="3" fill="#f59e0b" />
     <circle cx="32" cy="13" r="3" fill="#10b981" />
-    <text x="248" y="17" class="font-mono" font-size="9" fill="#64748b" text-anchor="end">SYS_SCHEMA_v1.0</text>
+    <text x="248" y="17" class="font-mono" font-size="9" fill="#64748b" text-anchor="end">SYS_ARCH_v2.0</text>
     <line x1="0" y1="26" x2="260" y2="26" stroke="#2e2252" stroke-width="1.2" />
 
     <!-- 1. Client / UI Node -->
@@ -175,7 +211,7 @@
       <text x="32" y="52" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">CLIENT_UI</text>
     </g>
 
-    <!-- 2. Gateway / QMS Router -->
+    <!-- 2. Gateway / API Router -->
     <g transform="translate(144, 42)">
       <rect x="0" y="0" width="92" height="52" rx="4" class="node node-active-gold" />
       <rect x="6" y="8" width="80" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
@@ -190,7 +226,7 @@
       <circle cx="80" cy="40" r="1.8" fill="#06b6d4" />
       <line x1="12" y1="40" x2="50" y2="40" stroke="#06b6d4" stroke-dasharray="1 1" stroke-width="1" />
       
-      <text x="46" y="62" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">QMS_SERVER</text>
+      <text x="46" y="62" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">API_SERVER</text>
     </g>
 
     <!-- 3. DB Storage Node -->
@@ -202,12 +238,12 @@
       <text x="24" y="38" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">DB_STORE</text>
     </g>
 
-    <!-- 4. Telemetry Metrics -->
+    <!-- 4. AI/LLM Node -->
     <g transform="translate(178, 126)">
       <rect x="0" y="0" width="58" height="28" rx="4" class="node node-active-cyan" />
       <path d="M 6,22 L 18,12 L 28,18 L 40,8 L 52,14" fill="none" stroke="#06b6d4" stroke-width="1.2" />
       <circle cx="52" cy="14" r="2" fill="#facc15" />
-      <text x="29" y="38" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">METRICS</text>
+      <text x="29" y="38" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">AI_LAYER</text>
     </g>
 
     <!-- Connective Flow Lines -->

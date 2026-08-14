@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
+  <style>
+    .font-sans {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .font-mono {
+      font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 10px;
+      fill: #06b6d4;
+      letter-spacing: 1.5px;
+    }
+    .proj-name {
+      font-weight: 800;
+      font-size: 15px;
+      fill: #ffffff;
+    }
+    .badge-bg {
+      fill: #1e1b4b;
+      stroke: #06b6d4;
+      stroke-width: 1;
+      rx: 4px;
+    }
+    .badge-text {
+      font-size: 9px;
+      fill: #cbd5e1;
+    }
+    .desc {
+      font-size: 11.5px;
+      fill: #cbd5e1;
+      line-height: 1.5;
+    }
+  </style>
+
+  <!-- Container Box -->
+  <rect width="100%" height="100%" fill="#130f26" stroke="#2e2252" stroke-width="1.5" rx="8" />
+  
+  <!-- Header Separator -->
+  <line x1="20" y1="36" x2="360" y2="36" stroke="#2e2252" stroke-width="0.8" opacity="0.5" />
+
+  <text x="20" y="26" class="font-mono card-title">FEATURED_PROJECT</text>
+  
+  <!-- Project Title -->
+  <text x="20" y="56" class="font-sans proj-name">ELYSEE</text>
+  
+  <!-- Description -->
+  <text x="20" y="80" class="font-sans desc">A luxury product landing page crafted to showcase elegance</text>
+  <text x="20" y="98" class="font-sans desc">and premium aesthetics through modern web design, smooth</text>
+  <text x="20" y="116" class="font-sans desc">animations, and responsive visual storytelling.</text>
+  
+  <!-- Tech badges -->
+  <g transform="translate(20, 138)">
+    <!-- Badge 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="-8" width="44" height="16" class="badge-bg" />
+      <text x="22" y="3" class="font-mono badge-text" text-anchor="middle">HTML</text>
+    </g>
+    
+    <!-- Badge 2 -->
+    <g transform="translate(50, 0)">
+      <rect x="0" y="-8" width="38" height="16" class="badge-bg" stroke="#facc15" fill="#2d220a" />
+      <text x="19" y="3" class="font-mono badge-text" text-anchor="middle" fill="#facc15">CSS</text>
+    </g>
+    
+    <!-- Badge 3 -->
+    <g transform="translate(94, 0)">
+      <rect x="0" y="-8" width="76" height="16" class="badge-bg" stroke="#a78bfa" fill="#251a4a" />
+      <text x="38" y="3" class="font-mono badge-text" text-anchor="middle" fill="#a78bfa">JavaScript</text>
+    </g>
+  </g>
+</svg>
