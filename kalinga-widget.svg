@@ -1,73 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 160" width="100%" height="100%">
   <style>
-    .font-sans {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    .font-mono {
-      font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-    }
-    .card-title {
-      font-weight: 700;
-      font-size: 10px;
-      fill: #facc15;
-      letter-spacing: 1.5px;
-    }
-    .proj-name {
-      font-weight: 800;
-      font-size: 15px;
-      fill: #ffffff;
-    }
-    .badge-bg {
-      fill: #1e1b4b;
-      stroke: #06b6d4;
-      stroke-width: 1;
-      rx: 4px;
-    }
-    .badge-text {
-      font-size: 9px;
-      fill: #cbd5e1;
-    }
-    .desc {
-      font-size: 11.5px;
-      fill: #cbd5e1;
-      line-height: 1.5;
-    }
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .font-mono { font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; }
+    .card-title { font-weight: 700; font-size: 11px; fill: #facc15; letter-spacing: 1.5px; }
+    .proj-name { font-weight: 800; font-size: 22px; fill: #ffffff; }
+    .badge-bg { fill: #1e1b4b; stroke: #06b6d4; stroke-width: 1.2; rx: 5px; }
+    .badge-text { font-size: 11px; fill: #cbd5e1; font-weight: 600; }
+    .desc { font-size: 13.5px; fill: #cbd5e1; line-height: 1.6; }
+    .accent-bg { fill: #130f26; stroke: #2e2252; stroke-width: 1.5; rx: 10px; }
+    .decor-box { fill: #1a153b; stroke: #facc15; stroke-width: 1; rx: 6px; }
   </style>
 
   <!-- Container Box -->
-  <rect width="100%" height="100%" fill="#130f26" stroke="#2e2252" stroke-width="1.5" rx="8" />
+  <rect width="100%" height="100%" class="accent-bg" />
   
   <!-- Header Separator -->
-  <line x1="20" y1="36" x2="360" y2="36" stroke="#2e2252" stroke-width="0.8" opacity="0.5" />
+  <line x1="28" y1="42" x2="752" y2="42" stroke="#2e2252" stroke-width="1" opacity="0.6" />
 
-  <text x="20" y="26" class="font-mono card-title">FEATURED_PROJECT</text>
+  <!-- Category Badge -->
+  <text x="28" y="30" class="font-mono card-title">FEATURED_REPOSITORY &#x2022; OFW FAMILY DISTANCE-PARENTING APP</text>
   
   <!-- Project Title -->
-  <text x="20" y="56" class="font-sans proj-name">Kalinga</text>
+  <text x="28" y="74" class="font-sans proj-name">Kalinga</text>
   
   <!-- Description -->
-  <text x="20" y="80" class="font-sans desc">A distance-parenting app concept for OFW families,</text>
-  <text x="20" y="98" class="font-sans desc">featuring interactive timezone clocks, dynamic sky</text>
-  <text x="20" y="116" class="font-sans desc">visuals, and a waitlist signup system.</text>
+  <text x="28" y="100" class="font-sans desc">A distance-parenting web application concept for OFW (Overseas Filipino Worker) families,</text>
+  <text x="28" y="120" class="font-sans desc">featuring interactive timezone clocks, dynamic sky visuals, and waitlist registration.</text>
   
-  <!-- Tech badges -->
-  <g transform="translate(20, 138)">
-    <!-- Badge 1 -->
+  <!-- Right Side Visual Decoration -->
+  <g transform="translate(620, 52)">
+    <rect x="0" y="0" width="132" height="78" class="decor-box" opacity="0.8" />
+    <circle cx="28" cy="28" r="14" fill="#facc15" opacity="0.8" />
+    <circle cx="90" cy="28" r="14" fill="#2e1065" stroke="#a78bfa" stroke-width="1" />
+    <path d="M 44,28 Q 60,18 76,28" fill="none" stroke="#facc15" stroke-dasharray="3 2" stroke-width="1.2" />
+    <text x="28" y="58" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">MANILA</text>
+    <text x="90" y="58" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">RIYADH</text>
+  </g>
+
+  <!-- Tech badges at bottom left -->
+  <g transform="translate(180, 74)">
     <g transform="translate(0, 0)">
-      <rect x="0" y="-8" width="66" height="16" class="badge-bg" />
-      <text x="33" y="3" class="font-mono badge-text" text-anchor="middle">HTML/CSS</text>
+      <rect x="0" y="-12" width="80" height="22" class="badge-bg" />
+      <text x="40" y="3" class="font-mono badge-text" text-anchor="middle">HTML/CSS</text>
     </g>
-    
-    <!-- Badge 2 -->
-    <g transform="translate(72, 0)">
-      <rect x="0" y="-8" width="76" height="16" class="badge-bg" stroke="#facc15" fill="#2d220a" />
-      <text x="38" y="3" class="font-mono badge-text" text-anchor="middle" fill="#facc15">JavaScript</text>
+    <g transform="translate(88, 0)">
+      <rect x="0" y="-12" width="94" height="22" class="badge-bg" stroke="#facc15" fill="#2d220a" />
+      <text x="47" y="3" class="font-mono badge-text" text-anchor="middle" fill="#facc15">JavaScript</text>
     </g>
-    
-    <!-- Badge 3 -->
-    <g transform="translate(154, 0)">
-      <rect x="0" y="-8" width="80" height="16" class="badge-bg" stroke="#a78bfa" fill="#251a4a" />
-      <text x="40" y="3" class="font-mono badge-text" text-anchor="middle" fill="#a78bfa">Apps Script</text>
+    <g transform="translate(190, 0)">
+      <rect x="0" y="-12" width="98" height="22" class="badge-bg" stroke="#a78bfa" fill="#251a4a" />
+      <text x="49" y="3" class="font-mono badge-text" text-anchor="middle" fill="#a78bfa">Apps Script</text>
     </g>
   </g>
 </svg>

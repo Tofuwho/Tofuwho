@@ -28,6 +28,27 @@
 
 ---
 
+<!-- ═══════════════════ FEATURED REPOSITORIES ═══════════════════ -->
+<h3 align="center">🚀 Featured Repositories</h3>
+
+<p align="center">
+  <a href="https://github.com/Tofuwho/ELYSEE">
+    <img src="./elysee-widget.svg" alt="ELYSEE — Luxury Product Landing Page" width="100%" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/Tofuwho/Kalinga">
+    <img src="./kalinga-widget.svg" alt="Kalinga — OFW Distance-Parenting App" width="100%" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/Tofuwho/PicklePH">
+    <img src="./pickleph-widget.svg" alt="PicklePH — Court Booking Platform" width="100%" />
+  </a>
+</p>
+
+---
+
 <!-- ═══════════════════ WHAT I OFFER ═══════════════════ -->
 
 <table>
@@ -92,35 +113,6 @@
 
 ---
 
-<!-- ═══════════════════ FEATURED PROJECTS ═══════════════════ -->
-<h3 align="center">🚀 Featured Repositories</h3>
-
-<table width="100%">
-  <tr>
-    <td width="33%" align="center" valign="top">
-      <a href="https://github.com/Tofuwho/ELYSEE">
-        <img src="./elysee-widget.svg" alt="ELYSEE — Luxury Product Landing Page" width="100%" />
-      </a>
-    </td>
-    <td width="33%" align="center" valign="top">
-      <a href="https://github.com/Tofuwho/Kalinga">
-        <img src="./kalinga-widget.svg" alt="Kalinga — OFW Distance-Parenting App" width="100%" />
-      </a>
-    </td>
-    <td width="33%" align="center" valign="top">
-      <a href="https://github.com/Tofuwho/PicklePH">
-        <img src="./pickleph-widget.svg" alt="PicklePH — Court Booking Platform" width="100%" />
-      </a>
-    </td>
-  </tr>
-</table>
-
-<p align="center">
-  <em>Click any project card above to explore the repository →</em>
-</p>
-
----
-
 <!-- ═══════════════════ CAPABILITIES ═══════════════════ -->
 <h3 align="center">📊 System Capabilities</h3>
 <p align="center">
@@ -133,12 +125,12 @@
 <h3 align="center">📈 GitHub Analytics</h3>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Tofuwho&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=0d1117&title_color=06b6d4&icon_color=facc15&text_color=cbd5e1&ring_color=a78bfa" alt="GitHub Stats" width="49%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Tofuwho&theme=midnight-purple&hide_border=true&background=0d1117&ring=06b6d4&fire=facc15&currStreakLabel=a78bfa&sideLabels=cbd5e1&dates=64748b" alt="GitHub Streak" width="49%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Tofuwho&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="150" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Tofuwho&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="150" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tofuwho&layout=compact&theme=midnight-purple&hide_border=true&bg_color=0d1117&title_color=06b6d4&text_color=cbd5e1" alt="Top Languages" width="42%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tofuwho&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="150" />
 </p>
 
 ---
