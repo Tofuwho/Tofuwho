@@ -18,19 +18,19 @@
     }
     .title {
       font-weight: 800;
-      font-size: 34px;
+      font-size: 28px;
       fill: #ffffff;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
     }
     .subtitle {
       font-weight: 600;
-      font-size: 15px;
+      font-size: 13.5px;
       fill: #facc15;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
     .desc {
       font-weight: 400;
-      font-size: 13px;
+      font-size: 12px;
       fill: #94a3b8;
     }
     .tag {
@@ -130,68 +130,81 @@
   <text x="500" y="14" class="font-mono coordinate-text" text-anchor="middle">500_PX</text>
   <text x="700" y="14" class="font-mono coordinate-text" text-anchor="middle">700_PX</text>
 
-  <!-- Left Side: Profile Text -->
-  <g transform="translate(50, 42)">
-    <rect x="0" y="0" width="145" height="20" rx="10" class="tag-border" />
+  <!-- Left Side: Profile Text (starts cleanly at x=45 with max width ~430px) -->
+  <g transform="translate(45, 38)">
+    <!-- Status Tag -->
+    <rect x="0" y="0" width="135" height="20" rx="10" class="tag-border" />
     <circle cx="10" cy="10" r="3.5" fill="#06b6d4" class="pulse-dot" />
     <text x="22" y="13.5" class="font-mono tag">OPEN_TO_WORK</text>
   </g>
   
   <!-- Name Title -->
-  <text x="50" y="98" class="font-sans title">JOHN MARK CAYABYAB</text>
+  <text x="45" y="92" class="font-sans title">JOHN MARK CAYABYAB</text>
   
   <!-- Subtitle -->
-  <text x="50" y="128" class="font-sans subtitle">Full-Stack Developer &#x2022; Systems Architect &#x2022; UI/UX Engineer</text>
+  <text x="45" y="120" class="font-sans subtitle">Full-Stack Developer &#x2022; Systems Architect &#x2022; UI/UX Designer</text>
   
   <!-- Description -->
-  <text x="50" y="158" class="font-sans desc">CS Graduate (GWA 1.65) with production deployment experience.</text>
-  <text x="50" y="178" class="font-sans desc">Engineering scalable web applications, REST APIs &#x26; AI workflows.</text>
+  <text x="45" y="148" class="font-sans desc">CS Graduate (GWA 1.65) with production deployment experience.</text>
+  <text x="45" y="168" class="font-sans desc">Building automated systems, web apps, and AI-integrated workflows.</text>
 
-  <!-- Right Side: Bento System Architecture Visualization -->
-  <g transform="translate(490, 24)">
+  <!-- Location & Email badges -->
+  <g transform="translate(45, 188)">
+    <rect x="0" y="0" width="105" height="18" rx="9" fill="#1e1b4b" stroke="#2e2252" stroke-width="1" />
+    <circle cx="10" cy="9" r="2.5" fill="#10b981" class="pulse-dot" />
+    <text x="20" y="12.5" class="font-mono" font-size="8.5" fill="#94a3b8">NCR, Philippines</text>
+  </g>
+  <g transform="translate(160, 188)">
+    <rect x="0" y="0" width="135" height="18" rx="9" fill="#1e1b4b" stroke="#2e2252" stroke-width="1" />
+    <circle cx="10" cy="9" r="2.5" fill="#facc15" />
+    <text x="20" y="12.5" class="font-mono" font-size="8.5" fill="#94a3b8">jcayabyab655@gmail</text>
+  </g>
+
+  <!-- Right Side: Bento System Architecture Visualization (x=505 to x=755) -->
+  <g transform="translate(505, 24)">
     <!-- Glassmorphic Container Panel -->
-    <rect x="0" y="0" width="260" height="192" rx="12" class="panel-bg" />
+    <rect x="0" y="0" width="250" height="192" rx="12" class="panel-bg" />
     
     <!-- Panel Header -->
-    <rect x="0" y="0" width="260" height="26" rx="12" fill="#1b1635" opacity="0.9" />
+    <rect x="0" y="0" width="250" height="26" rx="12" fill="#1b1635" opacity="0.9" />
     <circle cx="12" cy="13" r="3" fill="#ef4444" />
     <circle cx="22" cy="13" r="3" fill="#f59e0b" />
     <circle cx="32" cy="13" r="3" fill="#10b981" />
-    <text x="248" y="17" class="font-mono" font-size="9" fill="#64748b" text-anchor="end">SYS_ARCH_v2.0</text>
-    <line x1="0" y1="26" x2="260" y2="26" stroke="#2e2252" stroke-width="1.2" />
+    <text x="238" y="17" class="font-mono" font-size="9" fill="#64748b" text-anchor="end">SYS_ARCH_v2.0</text>
+    <line x1="0" y1="26" x2="250" y2="26" stroke="#2e2252" stroke-width="1.2" />
 
     <!-- 1. Client / UI Node -->
-    <g transform="translate(18, 56)">
-      <rect x="0" y="0" width="64" height="42" rx="4" class="node node-active-cyan" />
-      <line x1="0" y1="10" x2="64" y2="10" stroke="#06b6d4" stroke-width="0.8" />
+    <g transform="translate(14, 56)">
+      <rect x="0" y="0" width="60" height="42" rx="4" class="node node-active-cyan" />
+      <line x1="0" y1="10" x2="60" y2="10" stroke="#06b6d4" stroke-width="0.8" />
       <circle cx="5" cy="5" r="1.5" fill="#06b6d4" />
       <circle cx="10" cy="5" r="1.5" fill="#06b6d4" />
-      <rect x="6" y="16" width="30" height="3" rx="1.5" fill="#06b6d4" opacity="0.6" />
-      <rect x="6" y="24" width="40" height="3" rx="1.5" fill="#2e2252" />
-      <rect x="6" y="32" width="20" height="3" rx="1.5" fill="#2e2252" />
-      <text x="32" y="52" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">CLIENT_UI</text>
+      <rect x="6" y="16" width="28" height="3" rx="1.5" fill="#06b6d4" opacity="0.6" />
+      <rect x="6" y="24" width="38" height="3" rx="1.5" fill="#2e2252" />
+      <rect x="6" y="32" width="18" height="3" rx="1.5" fill="#2e2252" />
+      <text x="30" y="52" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">CLIENT_UI</text>
     </g>
 
     <!-- 2. Gateway / API Router -->
-    <g transform="translate(144, 42)">
-      <rect x="0" y="0" width="92" height="52" rx="4" class="node node-active-gold" />
-      <rect x="6" y="8" width="80" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
-      <circle cx="80" cy="12" r="1.8" fill="#facc15" />
-      <line x1="12" y1="12" x2="60" y2="12" stroke="#facc15" stroke-dasharray="2 2" stroke-width="1" />
+    <g transform="translate(138, 42)">
+      <rect x="0" y="0" width="96" height="52" rx="4" class="node node-active-gold" />
+      <rect x="6" y="8" width="84" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
+      <circle cx="84" cy="12" r="1.8" fill="#facc15" />
+      <line x1="12" y1="12" x2="64" y2="12" stroke="#facc15" stroke-dasharray="2 2" stroke-width="1" />
 
-      <rect x="6" y="22" width="80" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
-      <circle cx="80" cy="26" r="1.8" fill="#10b981" class="pulse-dot" />
-      <line x1="12" y1="26" x2="65" y2="26" stroke="#10b981" stroke-width="1" />
+      <rect x="6" y="22" width="84" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
+      <circle cx="84" cy="26" r="1.8" fill="#10b981" class="pulse-dot" />
+      <line x1="12" y1="26" x2="68" y2="26" stroke="#10b981" stroke-width="1" />
 
-      <rect x="6" y="36" width="80" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
-      <circle cx="80" cy="40" r="1.8" fill="#06b6d4" />
-      <line x1="12" y1="40" x2="50" y2="40" stroke="#06b6d4" stroke-dasharray="1 1" stroke-width="1" />
+      <rect x="6" y="36" width="84" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
+      <circle cx="84" cy="40" r="1.8" fill="#06b6d4" />
+      <line x1="12" y1="40" x2="52" y2="40" stroke="#06b6d4" stroke-dasharray="1 1" stroke-width="1" />
       
-      <text x="46" y="62" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">API_SERVER</text>
+      <text x="48" y="62" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">API_SERVER</text>
     </g>
 
     <!-- 3. DB Storage Node -->
-    <g transform="translate(74, 126)">
+    <g transform="translate(68, 126)">
       <ellipse cx="24" cy="6" rx="16" ry="4" fill="#1a153b" stroke="#a78bfa" stroke-width="1.2" />
       <path d="M 8,6 L 8,16 A 16,4 0 0 0 40,16 L 40,6" fill="#1a153b" stroke="#a78bfa" stroke-width="1.2" />
       <path d="M 8,16 A 16,4 0 0 0 40,16" fill="none" stroke="#a78bfa" stroke-dasharray="2 2" stroke-width="0.8" />
@@ -200,7 +213,7 @@
     </g>
 
     <!-- 4. AI/LLM Node -->
-    <g transform="translate(178, 126)">
+    <g transform="translate(172, 126)">
       <rect x="0" y="0" width="58" height="28" rx="4" class="node node-active-cyan" />
       <path d="M 6,22 L 18,12 L 28,18 L 40,8 L 52,14" fill="none" stroke="#06b6d4" stroke-width="1.2" />
       <circle cx="52" cy="14" r="2" fill="#facc15" />
@@ -208,9 +221,9 @@
     </g>
 
     <!-- Connective Flow Lines -->
-    <path d="M 82,77 Q 113,77 144,68" fill="none" class="link-flow link-flow-cyan" />
-    <path d="M 190,94 Q 144,115 110,136" fill="none" class="link-flow link-flow-purple" />
-    <path d="M 207,94 L 207,126" fill="none" class="link-flow link-flow-gold" />
-    <path d="M 74,142 Q 36,128 44,98" fill="none" stroke="#2e2252" stroke-dasharray="3 3" stroke-width="1.2" />
+    <path d="M 74,77 Q 106,77 138,68" fill="none" class="link-flow link-flow-cyan" />
+    <path d="M 186,94 Q 140,115 104,136" fill="none" class="link-flow link-flow-purple" />
+    <path d="M 201,94 L 201,126" fill="none" class="link-flow link-flow-gold" />
+    <path d="M 68,142 Q 30,128 38,98" fill="none" stroke="#2e2252" stroke-dasharray="3 3" stroke-width="1.2" />
   </g>
 </svg>
