@@ -121,20 +121,6 @@
 
 ---
 
-<!-- ═══════════════════ GITHUB STATS ═══════════════════ -->
-<h3 align="center">📈 GitHub Analytics</h3>
-
-<p align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Tofuwho&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="150" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Tofuwho&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="150" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Tofuwho&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="150" />
-</p>
-
----
-
 <!-- ═══════════════════ CONTRIBUTION SNAKE ═══════════════════ -->
 <h3 align="center">🐍 Contribution Activity</h3>
 <p align="center">
