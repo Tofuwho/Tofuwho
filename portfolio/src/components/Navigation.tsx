@@ -1,5 +1,5 @@
-import React from 'react';
-import { Terminal, Cpu, Briefcase, Code2, Send, Flame, Radio } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight, Menu, X, Sparkles } from 'lucide-react';
 
 interface NavProps {
   activeTab: string;
@@ -11,88 +11,142 @@ interface NavProps {
 export const Navigation: React.FC<NavProps> = ({
   activeTab,
   setActiveTab,
-  audioEnabled,
-  setAudioEnabled,
 }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const navItems = [
-    { id: 'home', label: '01 // COMMAND_CENTER', icon: Terminal },
-    { id: 'projects', label: '02 // PROJECT_VAULT', icon: Code2 },
-    { id: 'experience', label: '03 // DEFENSE_LOGS', icon: Briefcase },
-    { id: 'capabilities', label: '04 // AI_MATRIX', icon: Cpu },
-    { id: 'contact', label: '05 // INQUIRY_HUB', icon: Send },
+    { id: 'home', label: 'Overview' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'capabilities', label: 'Capabilities' },
+    { id: 'contact', label: 'Contact' },
   ];
 
+  const handleNavClick = (id: string) => {
+    setActiveTab(id);
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#080514]/80 border-b border-[#00f0ff]/30 px-4 lg:px-8 py-3 transition-all duration-300">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-8 py-3.5 backdrop-blur-xl bg-[#08090d]/80 border-b border-white/[0.07] transition-all">
+      <div className="w-full max-w-6xl mx-auto flex items-center justify-between gap-4">
         
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab('home')}>
-          <div className="relative w-10 h-10 rounded-lg bg-gradient-to-tr from-[#ff007f] via-[#7000ff] to-[#00f0ff] p-[2px] shadow-[0_0_15px_rgba(0,240,255,0.5)]">
-            <div className="w-full h-full bg-[#080612] rounded-md flex items-center justify-center font-bold text-lg text-[#00f0ff] font-mono">
-              TW
+        {/* Brand / Logo */}
+        <button
+          onClick={() => handleNavClick('home')}
+          className="flex items-center gap-3 cursor-pointer group text-left transition-transform active:scale-95"
+        >
+          <div className="relative">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-400/30 flex items-center justify-center font-bold text-sm text-white shadow-inner group-hover:border-indigo-400/60 transition-all">
+              JM
             </div>
+            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#08090d]" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h1 className="font-extrabold text-xl tracking-tight text-white font-['Outfit']">
-                TOFUWHO <span className="text-[#ff007f] font-mono text-sm">v2.6</span>
-              </h1>
-              <span className="cyber-badge-lime text-[10px] py-0.5 px-2">
-                <span className="pulse-dot"></span> LIVE
-              </span>
+            <div className="text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+              <span>John Mark Cayabyab</span>
+              <span className="text-[11px] text-indigo-400/80 font-mono hidden sm:inline">@Tofuwho</span>
             </div>
-            <p className="text-xs text-[#94a3b8] font-mono flex items-center gap-2">
-              <span>JOHN MARK CAYABYAB</span>
-              <span className="text-[#00f0ff]">•</span>
-              <span className="text-[#ccff00]">FULL-STACK & AI ENGINEER</span>
-            </p>
+            <p className="text-[11px] text-neutral-400 font-medium">Software Engineer & Systems Architect</p>
           </div>
-        </div>
+        </button>
 
-        <nav className="flex items-center gap-1 overflow-x-auto max-w-full py-1 no-scrollbar">
+        {/* Desktop Segmented Navigation Bar */}
+        <nav className="hidden md:flex items-center gap-1 p-1 rounded-full glass-panel shadow-xl border border-white/10">
           {navItems.map((item) => {
-            const Icon = item.icon;
             const isActive = activeTab === item.id;
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-xs tracking-wider transition-all whitespace-nowrap ${
+                onClick={() => handleNavClick(item.id)}
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? 'bg-[#00f0ff]/15 text-[#00f0ff] border border-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.3)] font-bold scale-105'
-                    : 'text-[#94a3b8] hover:text-white hover:bg-white/5 border border-transparent'
+                    ? 'bg-white text-neutral-950 font-semibold shadow-md'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/[0.06]'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#00f0ff] animate-pulse' : 'text-[#64748b]'}`} />
                 {item.label}
               </button>
             );
           })}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Right Desktop Actions */}
+        <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2 glass-badge py-1 px-3">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-[11px] text-neutral-300 font-medium">Available for Roles</span>
+          </div>
+
           <button
-            onClick={() => setAudioEnabled(!audioEnabled)}
-            className={`px-3 py-1.5 rounded-md font-mono text-[11px] border transition-all flex items-center gap-1.5 ${
-              audioEnabled
-                ? 'bg-[#ff007f]/20 border-[#ff007f] text-[#ff007f] shadow-[0_0_10px_rgba(255,0,127,0.3)]'
-                : 'bg-white/5 border-white/10 text-slate-400 hover:text-white'
-            }`}
+            onClick={() => handleNavClick('contact')}
+            className="btn-secondary text-xs py-1.5 px-3.5"
           >
-            <Radio className={`w-3 h-3 ${audioEnabled ? 'animate-ping' : ''}`} />
-            <span>SFX: {audioEnabled ? 'ON' : 'OFF'}</span>
+            <span>Get in Touch</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white transition-colors" />
           </button>
-          
+        </div>
+
+        {/* Mobile Hamburger Toggle Button */}
+        <div className="flex sm:hidden items-center gap-2">
           <button
-            onClick={() => setActiveTab('contact')}
-            className="cyber-badge-lime hover:scale-105 transition-transform cursor-pointer"
+            onClick={() => handleNavClick('contact')}
+            className="btn-secondary text-xs py-1 px-2.5"
           >
-            <Flame className="w-3.5 h-3.5 text-[#ccff00]" />
-            <span>HIRE ME</span>
+            <span>Contact</span>
+          </button>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-xl glass-panel text-neutral-300 hover:text-white transition-colors cursor-pointer"
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
       </div>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden mt-3 pt-3 border-t border-white/[0.08] animate-fade-in space-y-2 pb-2">
+          <div className="grid grid-cols-2 gap-1.5 p-1">
+            {navItems.map((item) => {
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`px-3 py-2.5 rounded-xl text-xs font-medium text-left transition-all ${
+                    isActive
+                      ? 'bg-white text-black font-semibold shadow-sm'
+                      : 'bg-white/[0.04] text-neutral-300 hover:bg-white/[0.08]'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="pt-2 px-1 flex items-center justify-between text-xs text-neutral-400">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>Available for full-time & contract</span>
+            </div>
+            <button
+              onClick={() => handleNavClick('contact')}
+              className="text-xs text-indigo-400 font-medium flex items-center gap-1"
+            >
+              <span>Message</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

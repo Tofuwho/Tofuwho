@@ -1,5 +1,6 @@
 import React from 'react';
-import { Shield } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { GithubIcon } from './GithubIcon';
 
 interface FooterProps {
   setActiveTab: (tab: string) => void;
@@ -7,40 +8,57 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
   return (
-    <footer className="mt-16 border-t border-[#00f0ff]/30 bg-[#060410] py-8 px-4 lg:px-8 font-mono text-xs text-slate-400">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="space-y-1 text-center md:text-left">
-          <div className="flex items-center justify-center md:justify-start gap-2 font-bold text-white text-sm">
-            <span className="text-[#00f0ff]">&gt;</span> TOFUWHO MAXIMALIST UI ARCHITECTURE
+    <footer className="w-full mt-20 border-t border-white/[0.08] py-10 px-4 sm:px-6 lg:px-8 text-xs text-neutral-400 bg-[#08090d]/60 backdrop-blur-md">
+      <div className="w-full max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        
+        {/* Bio info */}
+        <div className="space-y-1 text-center sm:text-left">
+          <div className="text-sm font-bold text-white flex items-center justify-center sm:justify-start gap-2">
+            <span>John Mark Cayabyab</span>
+            <span className="text-xs text-indigo-400/80 font-mono">(@Tofuwho)</span>
           </div>
-          <p className="text-slate-500 text-[11px]">
-            Designed & Engineered by John Mark Cayabyab (BS CS Graduate June 2026, GWA 1.65).
+          <p className="text-[11px] text-neutral-400">
+            BS Computer Science Graduate June 2026 (Honor Standing · GWA 1.65) · Taguig City University
           </p>
         </div>
 
-        <div className="flex items-center gap-4">
-          <button onClick={() => setActiveTab('home')} className="hover:text-[#00f0ff] transition-colors cursor-pointer">
-            COMMAND CENTER
+        {/* Quick Nav Links */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-neutral-400">
+          <button onClick={() => setActiveTab('home')} className="hover:text-white transition-colors cursor-pointer">
+            Overview
           </button>
-          <span>•</span>
-          <button onClick={() => setActiveTab('projects')} className="hover:text-[#ff007f] transition-colors cursor-pointer">
-            PROJECT VAULT
+          <button onClick={() => setActiveTab('projects')} className="hover:text-white transition-colors cursor-pointer">
+            Projects
           </button>
-          <span>•</span>
-          <button onClick={() => setActiveTab('experience')} className="hover:text-[#ccff00] transition-colors cursor-pointer">
-            DEFENSE LOGS
+          <button onClick={() => setActiveTab('experience')} className="hover:text-white transition-colors cursor-pointer">
+            Experience
           </button>
-          <span>•</span>
-          <button onClick={() => setActiveTab('contact')} className="hover:text-[#00f0ff] transition-colors cursor-pointer">
-            INQUIRY HUB
+          <button onClick={() => setActiveTab('capabilities')} className="hover:text-white transition-colors cursor-pointer">
+            Capabilities
           </button>
+          <button onClick={() => setActiveTab('contact')} className="hover:text-white transition-colors cursor-pointer">
+            Contact
+          </button>
+          <a
+            href="https://github.com/Tofuwho"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-white transition-colors flex items-center gap-1"
+          >
+            <GithubIcon className="w-3.5 h-3.5" />
+            <span>GitHub</span>
+          </a>
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="cyber-badge-lime text-[10px] py-1 px-3">
-            <Shield className="w-3 h-3 text-[#ccff00]" /> SYSTEM STATUS: 100% OPERATIONAL
+        {/* Status indicator */}
+        <div className="flex items-center gap-2 glass-badge py-1 px-3">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
+          <span className="text-[11px] text-neutral-300 font-medium">All Systems Operational</span>
         </div>
+
       </div>
     </footer>
   );

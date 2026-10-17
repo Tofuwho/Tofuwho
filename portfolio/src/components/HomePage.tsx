@@ -1,250 +1,327 @@
 import React from 'react';
-import { Award, Code, Sparkles, Terminal, ArrowRight, ShieldCheck, Zap, Activity, GitCommit, CheckCircle2, Cpu } from 'lucide-react';
+import { Award, ArrowRight, CheckCircle2, GitCommit, ChevronRight, Layers, Sparkles, Terminal, Code2, Database, ShieldCheck } from 'lucide-react';
+import { GithubIcon } from './GithubIcon';
 
 interface HomePageProps {
   setActiveTab: (tab: string) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ setActiveTab }) => {
-  const techList = [
-    'Python', 'JavaScript', 'Django', 'Express.js', 'Electron', 'MySQL', 
-    'SQLite', 'MongoDB', 'Git', 'GitHub Actions', 'REST APIs', 'LLM Agents', 
-    'PyMuPDF', 'RapidFuzz', 'TailwindCSS', 'CI/CD Pipelines'
+  const techCategories = [
+    {
+      label: 'Core & Backend',
+      skills: ['Python', 'Django', 'TypeScript', 'Node.js', 'Express', 'Electron']
+    },
+    {
+      label: 'Search & Document AI',
+      skills: ['PyMuPDF', 'RapidFuzz', 'Levenshtein Distance', 'LLM Agentic Systems', 'Vector Search']
+    },
+    {
+      label: 'Data & Infrastructure',
+      skills: ['MySQL', 'SQLite', 'REST APIs', 'GitHub Actions', 'CI/CD Pipelines', 'Git-Flow']
+    }
   ];
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section className="relative cyber-panel p-6 lg:p-10 border-2 border-[#00f0ff] shadow-[0_0_30px_rgba(0,240,255,0.2)]">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#ff007f]/20 via-[#7000ff]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#00f0ff]/20 via-[#ccff00]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+    <div className="w-full space-y-12 sm:space-y-16">
+      
+      {/* Hero Section */}
+      <section className="w-full pt-2 sm:pt-6">
+        <div className="glass-card p-6 sm:p-10 lg:p-12 text-center relative overflow-hidden">
+          {/* Subtle Ambient Radial Highlight inside card */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-indigo-500/10 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-8 space-y-5">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="cyber-badge-lime text-xs py-1 px-3">
-                <span className="pulse-dot"></span> AVAILABLE FOR HIRE
-              </span>
-              <span className="cyber-badge text-xs py-1 px-3">
-                <ShieldCheck className="w-3.5 h-3.5" /> GOVT PRODUCTION TESTED
-              </span>
-              <span className="cyber-badge-magenta text-xs py-1 px-3">
-                <Award className="w-3.5 h-3.5" /> GRAND CHAMPION 2026
+          <div className="max-w-3xl mx-auto flex flex-col items-center gap-5 sm:gap-6 relative z-10">
+            {/* Academic Honor Badge */}
+            <div className="inline-flex items-center gap-2 glass-badge py-1 px-3.5 border border-indigo-400/20 bg-indigo-500/5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
+              <span className="text-xs text-neutral-300 font-medium">
+                BS Computer Science · Honor Standing (GWA 1.65)
               </span>
             </div>
 
-            <div>
-              <h1 className="font-['Outfit'] text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-none">
-                JOHN MARK <span className="gradient-text-cyan">CAYABYAB</span>
-              </h1>
-              <p className="font-['Space_Grotesk'] text-lg sm:text-2xl font-bold text-[#ccff00] mt-2 flex items-center gap-2">
-                <Zap className="w-6 h-6 text-[#ccff00] animate-bounce" />
-                FULL-STACK DEVELOPER & AI AGENTIC SYSTEMS ARCHITECT
-              </p>
-            </div>
+            {/* Main Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+              Engineered with precision.<br />
+              <span className="gradient-text-accent">Built for real-world impact.</span>
+            </h1>
 
-            <p className="text-slate-300 font-['Space_Grotesk'] text-base leading-relaxed max-w-3xl">
-              Computer Science Graduate (<strong className="text-white">GWA 1.65</strong>) with proven hands-on experience building and deploying high-uptime systems in live government service offices (<strong className="text-[#00f0ff]">TESDA</strong>). Specializing in automated fiscal ledgers, real-time queue management, multi-step LLM agent workflows, and hybrid fuzzy PDF search engines.
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-400 leading-relaxed max-w-2xl font-normal">
+              I'm <strong className="text-white font-semibold">John Mark Cayabyab</strong>, a software engineer specializing in scalable full-stack architectures, high-uptime government systems, and intelligent document search engines.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-2">
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 w-full">
               <button
                 onClick={() => setActiveTab('projects')}
-                className="brutalist-card px-6 py-3 rounded-lg font-mono font-bold text-sm text-[#00f0ff] flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer"
+                className="btn-primary text-xs sm:text-sm py-2.5 px-5"
               >
-                <Code className="w-4 h-4" />
-                <span>EXPLORE PROJECT VAULT</span>
-                <ArrowRight className="w-4 h-4 text-[#ff007f]" />
+                <span>Explore Projects</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
                 onClick={() => setActiveTab('experience')}
-                className="cyber-panel cyber-panel-magenta px-6 py-3 font-mono font-bold text-sm text-[#ff007f] flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer"
+                className="btn-secondary text-xs sm:text-sm py-2.5 px-5"
               >
-                <Activity className="w-4 h-4" />
-                <span>GOVERNMENT DEFENSE LOGS</span>
+                <span>Government Experience</span>
               </button>
 
-              <button
-                onClick={() => setActiveTab('contact')}
-                className="cyber-panel cyber-panel-lime px-6 py-3 font-mono font-bold text-sm text-[#ccff00] flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer"
+              <a
+                href="https://github.com/Tofuwho"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-secondary text-xs sm:text-sm py-2.5 px-4"
               >
-                <Terminal className="w-4 h-4" />
-                <span>OPEN CLI TERMINAL</span>
-              </button>
+                <GithubIcon className="w-4 h-4 text-neutral-300" />
+                <span>GitHub</span>
+              </a>
             </div>
-          </div>
 
-          <div className="lg:col-span-4">
-            <div className="cyber-panel cyber-panel-magenta p-5 space-y-4 bg-[#0d0921]/90">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <span className="font-mono text-xs font-bold text-[#ff007f] flex items-center gap-1.5">
-                  <Cpu className="w-4 h-4" /> SYSTEM_IDENTITY
-                </span>
-                <span className="font-mono text-[10px] text-slate-400">ID: TOFUWHO-01</span>
+            {/* Quick Metrics Bar */}
+            <div className="pt-6 mt-4 border-t border-white/[0.08] w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-white font-mono">1.65</div>
+                <div className="text-[11px] text-neutral-400 font-medium">GWA Honor Standing</div>
               </div>
-
-              <div className="space-y-3 font-mono text-xs text-slate-300">
-                <div className="flex justify-between items-center bg-white/5 p-2 rounded">
-                  <span className="text-slate-400">DEGREE:</span>
-                  <span className="text-white font-bold">BS Computer Science</span>
-                </div>
-                <div className="flex justify-between items-center bg-white/5 p-2 rounded">
-                  <span className="text-slate-400">GWA:</span>
-                  <span className="text-[#ccff00] font-extrabold text-sm">1.65 (Honor)</span>
-                </div>
-                <div className="flex justify-between items-center bg-white/5 p-2 rounded">
-                  <span className="text-slate-400">LOCATION:</span>
-                  <span className="text-[#00f0ff] font-bold">NCR, Philippines</span>
-                </div>
-                <div className="flex justify-between items-center bg-white/5 p-2 rounded">
-                  <span className="text-slate-400">REPOS:</span>
-                  <span className="text-[#ff007f] font-bold">ThesisLibrary, ELYSEE, Kalinga</span>
-                </div>
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-amber-400 font-mono">1st Place</div>
+                <div className="text-[11px] text-neutral-400 font-medium">CICT Research Champion</div>
               </div>
-
-              <div className="p-3 bg-[#080512] rounded border border-[#00f0ff]/30 text-[11px] font-mono text-slate-400">
-                <span className="text-[#00f0ff] font-bold">&gt; STATUS:</span> Ready to deploy scalable applications, build automated agentic pipelines, and optimize data workflows.
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-indigo-400 font-mono">267+</div>
+                <div className="text-[11px] text-neutral-400 font-medium">Production Commits</div>
+              </div>
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-emerald-400 font-mono">2 Systems</div>
+                <div className="text-[11px] text-neutral-400 font-medium">TESDA Live Deployment</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="cyber-panel p-5 space-y-2 border-l-4 border-l-[#00f0ff]">
-          <div className="flex items-center justify-between text-[#00f0ff]">
-            <span className="font-mono text-xs font-bold uppercase">ACADEMIC STANDING</span>
-            <Award className="w-5 h-5" />
+      {/* Key Accomplishments Section */}
+      <section className="w-full space-y-4">
+        <div className="flex items-center justify-between px-1">
+          <div>
+            <div className="text-xs font-semibold tracking-wider uppercase text-indigo-400 font-mono">
+              Proven Milestones
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mt-1">
+              Key Accomplishments
+            </h2>
           </div>
-          <div className="font-['Outfit'] text-4xl font-extrabold text-white">
-            1.65 <span className="text-xs text-[#00f0ff] font-mono font-normal">GWA</span>
-          </div>
-          <p className="text-xs text-slate-400 font-mono">
-            Taguig City University • BS CS Graduate June 2026 (Final Term GPA: 1.53)
-          </p>
         </div>
 
-        <div className="cyber-panel cyber-panel-magenta p-5 space-y-2 border-l-4 border-l-[#ff007f]">
-          <div className="flex items-center justify-between text-[#ff007f]">
-            <span className="font-mono text-xs font-bold uppercase">RESEARCH AWARD</span>
-            <Sparkles className="w-5 h-5" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Card 1 */}
+          <div className="glass-card p-6 flex flex-col justify-between space-y-4 group">
+            <div className="flex items-center justify-between text-neutral-400">
+              <span className="text-xs font-semibold tracking-wide uppercase text-neutral-400 font-mono">Academic</span>
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                <Award className="w-4 h-4 text-emerald-400" />
+              </div>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-mono">1.65</div>
+              <div className="text-xs font-semibold text-neutral-300 mt-1">General Weighted Average</div>
+            </div>
+            <p className="text-xs text-neutral-400 leading-relaxed font-normal">
+              Taguig City University · BS Computer Science Graduate June 2026 (Final Term GPA: 1.53).
+            </p>
           </div>
-          <div className="font-['Outfit'] text-4xl font-extrabold text-white">
-            1st <span className="text-xs text-[#ff007f] font-mono font-normal">CHAMPION</span>
-          </div>
-          <p className="text-xs text-slate-400 font-mono">
-            CICT 2026 University Research Festival (Principal Investigator)
-          </p>
-        </div>
 
-        <div className="cyber-panel cyber-panel-lime p-5 space-y-2 border-l-4 border-l-[#ccff00]">
-          <div className="flex items-center justify-between text-[#ccff00]">
-            <span className="font-mono text-xs font-bold uppercase">REPO COMMIT VELOCITY</span>
-            <GitCommit className="w-5 h-5" />
+          {/* Card 2 */}
+          <div className="glass-card p-6 flex flex-col justify-between space-y-4 group">
+            <div className="flex items-center justify-between text-neutral-400">
+              <span className="text-xs font-semibold tracking-wide uppercase text-neutral-400 font-mono">Research</span>
+              <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+              </div>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-mono">1st Place</div>
+              <div className="text-xs font-semibold text-neutral-300 mt-1">CICT Research Festival 2026</div>
+            </div>
+            <p className="text-xs text-neutral-400 leading-relaxed font-normal">
+              Principal Investigator for high-efficiency document search and fuzzy matching algorithms.
+            </p>
           </div>
-          <div className="font-['Outfit'] text-4xl font-extrabold text-white">
-            267+ <span className="text-xs text-[#ccff00] font-mono font-normal">COMMITS</span>
-          </div>
-          <p className="text-xs text-slate-400 font-mono">
-            ThesisLibrary Repository with full CI/CD & Automated Git-Flow
-          </p>
-        </div>
 
-        <div className="cyber-panel p-5 space-y-2 border-l-4 border-l-[#8b5cf6]">
-          <div className="flex items-center justify-between text-[#8b5cf6]">
-            <span className="font-mono text-xs font-bold uppercase">LIVE GOVT DEPLOYMENTS</span>
-            <CheckCircle2 className="w-5 h-5" />
+          {/* Card 3 */}
+          <div className="glass-card p-6 flex flex-col justify-between space-y-4 group">
+            <div className="flex items-center justify-between text-neutral-400">
+              <span className="text-xs font-semibold tracking-wide uppercase text-neutral-400 font-mono">Velocity</span>
+              <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
+                <GitCommit className="w-4 h-4 text-indigo-400" />
+              </div>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-mono">267+</div>
+              <div className="text-xs font-semibold text-neutral-300 mt-1">Production Commits</div>
+            </div>
+            <p className="text-xs text-neutral-400 leading-relaxed font-normal">
+              ThesisLibrary repository built with automated CI/CD workflows and strict git-flow standards.
+            </p>
           </div>
-          <div className="font-['Outfit'] text-4xl font-extrabold text-white">
-            2 <span className="text-xs text-[#8b5cf6] font-mono font-normal">SYSTEMS</span>
+
+          {/* Card 4 */}
+          <div className="glass-card p-6 flex flex-col justify-between space-y-4 group">
+            <div className="flex items-center justify-between text-neutral-400">
+              <span className="text-xs font-semibold tracking-wide uppercase text-neutral-400 font-mono">Production</span>
+              <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+              </div>
+            </div>
+            <div>
+              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-mono">2 Systems</div>
+              <div className="text-xs font-semibold text-neutral-300 mt-1">TESDA Service Office</div>
+            </div>
+            <p className="text-xs text-neutral-400 leading-relaxed font-normal">
+              Real-time Queue Management Engine & Automated Fiscal Procurement Ledger deployed live.
+            </p>
           </div>
-          <p className="text-xs text-slate-400 font-mono">
-            Real-Time QMS & Fiscal Procurement Ledger at TESDA Office
-          </p>
         </div>
       </section>
 
-      <section className="cyber-panel p-4 overflow-hidden bg-[#090616]/90 border-y-2 border-y-[#00f0ff]/40">
-        <div className="flex items-center gap-3 mb-2 px-2">
-          <span className="font-mono text-xs font-bold text-[#00f0ff] uppercase tracking-widest flex items-center gap-1.5">
-            <Cpu className="w-4 h-4 animate-spin" /> ACTIVE_TECH_MATRIX
-          </span>
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-[#00f0ff]/40 to-transparent" />
-        </div>
-
-        <div className="marquee-container">
-          <div className="marquee-content py-2">
-            {[...techList, ...techList].map((item, idx) => (
-              <span
-                key={idx}
-                className="cyber-badge font-mono text-xs py-1.5 px-4 bg-white/5 border border-white/10 text-white hover:border-[#00f0ff] hover:text-[#00f0ff] transition-colors"
-              >
-                <span className="text-[#ff007f] font-bold">#</span> {item}
-              </span>
-            ))}
+      {/* Featured Architecture Section */}
+      <section className="w-full space-y-5">
+        <div className="flex items-center justify-between px-1">
+          <div>
+            <div className="text-xs font-semibold tracking-wider uppercase text-indigo-400 font-mono">
+              Production Architectures
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mt-1">
+              Flagship Systems
+            </h2>
           </div>
-        </div>
-      </section>
-
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="cyber-panel p-6 space-y-4 hover:border-[#00f0ff]">
-          <div className="flex items-start justify-between">
-            <span className="cyber-badge-lime text-xs">GOVERNMENT IT OJT</span>
-            <span className="font-mono text-xs text-slate-400">FEB - MAY 2026</span>
-          </div>
-          
-          <h3 className="font-['Outfit'] text-xl font-extrabold text-white">
-            TESDA Government Systems (QMS & Fiscal Ledger)
-          </h3>
-          
-          <p className="text-sm text-slate-300 font-['Space_Grotesk'] leading-relaxed">
-            Replaced manual paper operations at TESDA Service Office with a real-time asynchronous Queue Management System and created an automated procurement ledger for RIS, PR, PO, PPMP, and APP-CSE document processing.
-          </p>
-
-          <div className="flex flex-wrap gap-2 pt-2">
-            <span className="text-[11px] font-mono bg-white/5 px-2.5 py-1 rounded text-slate-300">Asynchronous QMS</span>
-            <span className="text-[11px] font-mono bg-white/5 px-2.5 py-1 rounded text-slate-300">Government DocGen</span>
-            <span className="text-[11px] font-mono bg-white/5 px-2.5 py-1 rounded text-slate-300">Network Printer Subnets</span>
-          </div>
-
-          <button
-            onClick={() => setActiveTab('experience')}
-            className="font-mono text-xs font-bold text-[#00f0ff] flex items-center gap-1.5 hover:underline pt-2 cursor-pointer"
-          >
-            <span>READ FULL DEFENSE LOG</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        <div className="cyber-panel cyber-panel-magenta p-6 space-y-4 hover:border-[#ff007f]">
-          <div className="flex items-start justify-between">
-            <span className="cyber-badge-magenta text-xs">RESEARCH FESTIVAL 2026</span>
-            <span className="font-mono text-xs text-slate-400">GRAND CHAMPION</span>
-          </div>
-          
-          <h3 className="font-['Outfit'] text-xl font-extrabold text-white">
-            Operational Data Optimization Research
-          </h3>
-          
-          <p className="text-sm text-slate-300 font-['Space_Grotesk'] leading-relaxed">
-            Awarded 1st Place (Grand Champion) at the CICT 2026 University Research Festival as Principal Investigator for high-efficiency data scanning algorithms and scalable system design.
-          </p>
-
-          <div className="flex flex-wrap gap-2 pt-2">
-            <span className="text-[11px] font-mono bg-white/5 px-2.5 py-1 rounded text-slate-300">Principal Investigator</span>
-            <span className="text-[11px] font-mono bg-white/5 px-2.5 py-1 rounded text-slate-300">Fuzzy Search Algo</span>
-            <span className="text-[11px] font-mono bg-white/5 px-2.5 py-1 rounded text-slate-300">PDF Metadata Mining</span>
-          </div>
-
           <button
             onClick={() => setActiveTab('projects')}
-            className="font-mono text-xs font-bold text-[#ff007f] flex items-center gap-1.5 hover:underline pt-2 cursor-pointer"
+            className="text-xs font-semibold text-neutral-400 hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
           >
-            <span>INSPECT HYBRID ENGINE</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>View all 5 projects</span>
+            <ChevronRight className="w-4 h-4" />
           </button>
         </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* System 1: ThesisLibrary */}
+          <div
+            onClick={() => setActiveTab('projects')}
+            className="glass-card p-6 sm:p-8 flex flex-col justify-between space-y-6 group cursor-pointer"
+          >
+            <div className="space-y-4">
+              <div className="flex items-center justify-between gap-2">
+                <span className="glass-badge bg-indigo-500/10 border-indigo-500/20 text-indigo-300">
+                  AI & Search Engine
+                </span>
+                <span className="text-xs font-mono text-neutral-400">Sub-second Latency</span>
+              </div>
+
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-indigo-300 transition-colors">
+                  ThesisLibrary Academic Search Engine
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed">
+                  A high-throughput search system combining weighted metadata indexing, PyMuPDF full-document binary scans, and RapidFuzz Levenshtein distance typo auto-correction.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {['Python', 'Django', 'PyMuPDF', 'RapidFuzz', 'GitHub Actions', 'CI/CD'].map((t) => (
+                  <span key={t} className="text-xs px-2.5 py-1 rounded-lg bg-white/[0.04] text-neutral-300 border border-white/[0.06]">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
+              <span className="text-xs text-neutral-400 font-mono">267+ Commits · CI/CD Verified</span>
+              <span className="text-xs font-semibold text-white flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                <span>Inspect Architecture</span>
+                <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />
+              </span>
+            </div>
+          </div>
+
+          {/* System 2: TESDA Systems */}
+          <div
+            onClick={() => setActiveTab('experience')}
+            className="glass-card p-6 sm:p-8 flex flex-col justify-between space-y-6 group cursor-pointer"
+          >
+            <div className="space-y-4">
+              <div className="flex items-center justify-between gap-2">
+                <span className="glass-badge bg-emerald-500/10 border-emerald-500/20 text-emerald-300">
+                  Government Systems
+                </span>
+                <span className="text-xs font-mono text-neutral-400">Feb – May 2026</span>
+              </div>
+
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-emerald-300 transition-colors">
+                  TESDA Real-Time Queue & Fiscal Ledger
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed">
+                  Replaced physical paper ticketing and manual budget registers with a live asynchronous queue monitor and automated document generation for RIS, PR, PO, and PPMP records.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {['Asynchronous QMS', 'Fiscal DocGen', 'Subnet Routing', 'High Uptime'].map((t) => (
+                  <span key={t} className="text-xs px-2.5 py-1 rounded-lg bg-white/[0.04] text-neutral-300 border border-white/[0.06]">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
+              <span className="text-xs text-neutral-400 font-mono">Live Office Deployment</span>
+              <span className="text-xs font-semibold text-white flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                <span>Explore Defense Logs</span>
+                <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
+              </span>
+            </div>
+          </div>
+        </div>
       </section>
+
+      {/* Technical Matrix Breakdown */}
+      <section className="glass-card p-6 sm:p-8 space-y-6">
+        <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+          <div className="flex items-center gap-2.5">
+            <Layers className="w-5 h-5 text-indigo-400" />
+            <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
+              Technical Matrix & Tooling
+            </h2>
+          </div>
+          <span className="text-xs text-neutral-400 font-mono hidden sm:inline">100% Production Ready</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {techCategories.map((cat) => (
+            <div key={cat.label} className="space-y-3">
+              <div className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
+                {cat.label}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-neutral-200 border border-white/[0.07] hover:bg-white/[0.08] hover:border-indigo-400/30 transition-all cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 };

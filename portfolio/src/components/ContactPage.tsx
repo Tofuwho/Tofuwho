@@ -1,232 +1,236 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, Copy, Check, Terminal, MessageSquare, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, ArrowUpRight, MessageSquare, Terminal } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 
 export const ContactPage: React.FC = () => {
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     type: 'Job Opportunity',
     message: ''
   });
-  const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
-  const [submitted, setSubmitted] = useState<boolean>(false);
-  const [submitting, setSubmitting] = useState<boolean>(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText('jcayabyab655@gmail.com');
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
       setSubmitted(true);
-    }, 800);
+    }, 600);
   };
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <div className="cyber-panel p-6 border-2 border-[#00f0ff] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="cyber-badge text-xs">INQUIRY & TERMINAL HUB</span>
-            <span className="font-mono text-xs text-[#00f0ff]">&gt; CONTACT_TRANSMITTER</span>
-          </div>
-          <h2 className="font-['Outfit'] text-3xl font-extrabold text-white mt-1">
-            LET'S BUILD <span className="gradient-text-cyan">SOMETHING EXTRAORDINARY</span>
-          </h2>
-          <p className="text-slate-300 font-['Space_Grotesk'] text-sm mt-1">
-            Actively seeking Junior Software Engineer, Full-Stack Developer, or AI/Automation roles.
-          </p>
+    <div className="w-full space-y-10 sm:space-y-12">
+      
+      {/* Header */}
+      <div className="space-y-2">
+        <div className="inline-flex items-center gap-2 glass-badge">
+          <MessageSquare className="w-3.5 h-3.5 text-indigo-400" />
+          <span>Get in Touch</span>
         </div>
-
-        <button
-          onClick={handleCopyEmail}
-          className="cyber-badge-lime text-xs py-2.5 px-4 cursor-pointer hover:scale-105 transition-transform"
-        >
-          {copiedEmail ? <Check className="w-4 h-4 text-[#ccff00]" /> : <Copy className="w-4 h-4 text-[#ccff00]" />}
-          <span>{copiedEmail ? 'COPIED TO CLIPBOARD!' : 'COPY EMAIL: jcayabyab655@gmail.com'}</span>
-        </button>
+        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          Let's Build Something Exceptional
+        </h1>
+        <p className="text-neutral-400 text-sm sm:text-base max-w-2xl leading-relaxed">
+          Available for software engineering roles, full-stack application development, and high-performance system architecture.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-7">
-          <div className="cyber-panel cyber-panel-magenta p-6 space-y-6 bg-[#0c0822]/95 border-2 border-[#ff007f]">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#ff007f]">
-                <Terminal className="w-4 h-4" /> TRANSMITTER_CLI_FORM
-              </div>
-              <span className="font-mono text-[10px] text-slate-400">ENCRYPTION: 256-BIT SSL</span>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        {/* Contact Form Column */}
+        <div className="lg:col-span-7 w-full">
+          <div className="glass-card p-6 sm:p-8 space-y-6">
+            <div>
+              <h3 className="text-xl font-bold tracking-tight text-white">
+                Send a Direct Inquiry
+              </h3>
+              <p className="text-xs text-neutral-400 mt-1">
+                Fill in your details below. I usually respond within 24 hours.
+              </p>
             </div>
 
             {submitted ? (
-              <div className="p-6 bg-[#00f0ff]/10 border border-[#00f0ff] rounded-lg text-center space-y-3">
-                <ShieldCheck className="w-10 h-10 text-[#00f0ff] mx-auto animate-bounce" />
-                <h3 className="font-['Outfit'] text-xl font-bold text-white">
-                  TRANSMISSION RECEIVED SUCCESSFULLY!
-                </h3>
-                <p className="text-xs font-mono text-slate-300">
-                  Thank you, <strong className="text-[#00f0ff]">{formData.name}</strong>. Your inquiry has been queued for immediate review.
+              <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center space-y-4 animate-fade-in">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+                </div>
+                <h4 className="text-lg font-bold text-white">Message Received Successfully</h4>
+                <p className="text-xs text-neutral-300 max-w-sm mx-auto leading-relaxed">
+                  Thank you, <strong className="text-white">{formData.name}</strong>. Your note has been queued and I will reach out shortly via <span className="text-indigo-400">{formData.email}</span>.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
-                  className="cyber-badge text-xs py-1.5 px-4 cursor-pointer mt-2"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({ name: '', email: '', type: 'Job Opportunity', message: '' });
+                  }}
+                  className="btn-secondary text-xs mt-2"
                 >
-                  SEND ANOTHER MESSAGE &gt;
+                  Send Another Message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
+              <form onSubmit={handleSubmit} className="space-y-4 text-xs">
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 flex items-center gap-1.5">
-                    <span className="text-[#00f0ff] font-bold">&gt;</span> ENTER_NAME:
-                  </label>
+                  <label className="text-neutral-300 font-semibold">Your Name</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Alex Mercer"
-                    className="w-full bg-[#080514] border border-[#ff007f]/40 focus:border-[#00f0ff] focus:outline-none p-2.5 rounded text-white font-mono placeholder:text-slate-600"
+                    className="w-full bg-white/[0.04] border border-white/10 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400/30 focus:outline-none p-3 rounded-xl text-white placeholder:text-neutral-500 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 flex items-center gap-1.5">
-                    <span className="text-[#00f0ff] font-bold">&gt;</span> SENDER_EMAIL:
-                  </label>
+                  <label className="text-neutral-300 font-semibold">Email Address</label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="e.g. alex@company.com"
-                    className="w-full bg-[#080514] border border-[#ff007f]/40 focus:border-[#00f0ff] focus:outline-none p-2.5 rounded text-white font-mono placeholder:text-slate-600"
+                    className="w-full bg-white/[0.04] border border-white/10 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400/30 focus:outline-none p-3 rounded-xl text-white placeholder:text-neutral-500 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 flex items-center gap-1.5">
-                    <span className="text-[#00f0ff] font-bold">&gt;</span> INQUIRY_TYPE:
-                  </label>
+                  <label className="text-neutral-300 font-semibold">Subject / Inquiry Type</label>
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                    className="w-full bg-[#080514] border border-[#ff007f]/40 focus:border-[#00f0ff] focus:outline-none p-2.5 rounded text-white font-mono"
+                    className="w-full bg-[#11131a] border border-white/10 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400/30 focus:outline-none p-3 rounded-xl text-white transition-colors"
                   >
-                    <option value="Job Opportunity">Job Opportunity (Full-Time / Junior Software Eng)</option>
-                    <option value="Full-Stack Project">Full-Stack Project Development</option>
-                    <option value="AI Workflow Consultation">AI Agentic Workflow Consultation</option>
-                    <option value="Other Inquiry">General Inquiry</option>
+                    <option value="Job Opportunity">Software Engineering Role (Full-Time / Contract)</option>
+                    <option value="Full-Stack Project">Full-Stack System Architecture & Build</option>
+                    <option value="AI Workflow Consultation">Search Engine & AI Workflow Consultation</option>
+                    <option value="General Inquiry">General Inquiry</option>
                   </select>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 flex items-center gap-1.5">
-                    <span className="text-[#00f0ff] font-bold">&gt;</span> PAYLOAD_MESSAGE:
-                  </label>
+                  <label className="text-neutral-300 font-semibold">Message</label>
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Type your message details here..."
-                    className="w-full bg-[#080514] border border-[#ff007f]/40 focus:border-[#00f0ff] focus:outline-none p-2.5 rounded text-white font-mono placeholder:text-slate-600 resize-none"
+                    placeholder="Tell me about your team, project requirements, or opportunity..."
+                    className="w-full bg-white/[0.04] border border-white/10 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400/30 focus:outline-none p-3 rounded-xl text-white placeholder:text-neutral-500 transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full brutalist-card py-3 rounded font-mono font-bold text-sm text-[#00f0ff] flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02] transition-transform"
+                  className="w-full btn-primary py-3 text-xs mt-2"
                 >
-                  <Send className="w-4 h-4 text-[#ff007f]" />
-                  <span>{submitting ? 'TRANSMITTING PAYLOAD...' : 'TRANSMIT MESSAGE NOW'}</span>
+                  <Send className="w-3.5 h-3.5" />
+                  <span>{submitting ? 'Sending Message...' : 'Send Message'}</span>
                 </button>
               </form>
             )}
           </div>
         </div>
 
-        <div className="lg:col-span-5 space-y-6">
-          <div className="cyber-panel p-6 space-y-4">
-            <h3 className="font-['Outfit'] text-xl font-bold text-white flex items-center gap-2">
-              <MessageSquare className="w-5 h-5 text-[#00f0ff]" />
-              DIRECT CHANNELS
+        {/* Direct Channels Column */}
+        <div className="lg:col-span-5 space-y-4 w-full">
+          <div className="glass-card p-6 space-y-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400 font-mono">
+              Direct Channels
             </h3>
 
-            <div className="space-y-3 font-mono text-xs text-slate-300">
+            <div className="space-y-2.5">
               <a
                 href="mailto:jcayabyab655@gmail.com"
-                className="p-3 bg-white/5 hover:bg-[#00f0ff]/10 rounded border border-white/10 hover:border-[#00f0ff] flex items-center justify-between transition-colors block"
+                className="p-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.07] hover:border-indigo-400/30 flex items-center justify-between transition-all group"
               >
-                <div className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-[#00f0ff]" />
-                  <span>jcayabyab655@gmail.com</span>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
+                    <Mail className="w-4 h-4 text-indigo-400" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-neutral-400 font-medium">Email</div>
+                    <span className="text-xs text-white font-semibold group-hover:text-indigo-300 transition-colors">
+                      jcayabyab655@gmail.com
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[10px] text-[#00f0ff] font-bold">EMAIL &gt;</span>
+                <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" />
               </a>
 
               <a
                 href="https://github.com/Tofuwho"
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 bg-white/5 hover:bg-[#ff007f]/10 rounded border border-white/10 hover:border-[#ff007f] flex items-center justify-between transition-colors block"
+                className="p-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.07] hover:border-indigo-400/30 flex items-center justify-between transition-all group"
               >
-                <div className="flex items-center gap-2.5">
-                  <GithubIcon className="w-4 h-4 text-[#ff007f]" />
-                  <span>github.com/Tofuwho</span>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center">
+                    <GithubIcon className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-neutral-400 font-medium">GitHub Profile</div>
+                    <span className="text-xs text-white font-semibold group-hover:text-indigo-300 transition-colors">
+                      github.com/Tofuwho
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[10px] text-[#ff007f] font-bold">GITHUB &gt;</span>
+                <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" />
               </a>
 
-              <div className="p-3 bg-white/5 rounded border border-white/10 flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-[#ccff00]" />
-                <span>NCR, Philippines (Open to Remote & On-Site)</span>
+              <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.07] flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                  <MapPin className="w-4 h-4 text-emerald-400" />
+                </div>
+                <div>
+                  <div className="text-[11px] text-neutral-400 font-medium">Location</div>
+                  <span className="text-xs text-neutral-300 font-medium">
+                    NCR, Philippines · Open to Remote & On-Site
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="cyber-panel cyber-panel-lime p-6 space-y-4">
+          {/* Repository Activity Card */}
+          <div className="glass-card p-6 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold text-[#ccff00]">
-                🐍 CONTRIBUTION SNAKE GRAPHIC
-              </span>
-              <span className="text-[10px] font-mono text-slate-400">267+ COMMITS</span>
+              <span className="text-xs font-bold text-white">Repository Velocity</span>
+              <span className="text-xs text-indigo-400 font-mono font-medium">267+ Commits</span>
             </div>
 
-            <div className="p-3 bg-[#080514] rounded border border-[#ccff00]/30 space-y-2">
-              <div className="grid grid-cols-12 gap-1 py-1">
+            <div className="overflow-x-auto pb-1">
+              <div className="grid grid-cols-12 gap-1.5 min-w-[280px] py-1">
                 {Array.from({ length: 48 }).map((_, i) => {
-                  const isBright = i % 5 === 0 || i % 7 === 0;
-                  const isSuper = i === 12 || i === 23 || i === 34;
+                  const isSuper = i === 8 || i === 18 || i === 29 || i === 41;
+                  const isBright = i % 3 === 0;
                   return (
                     <div
                       key={i}
-                      className={`h-3.5 rounded-sm transition-all ${
+                      className={`h-3 rounded-[3px] transition-all ${
                         isSuper
-                          ? 'bg-[#ccff00] shadow-[0_0_8px_#ccff00]'
+                          ? 'bg-indigo-400 shadow-[0_0_6px_rgba(129,140,248,0.6)]'
                           : isBright
-                          ? 'bg-[#00f0ff]'
-                          : 'bg-[#ff007f]/20'
+                          ? 'bg-neutral-300'
+                          : 'bg-neutral-800'
                       }`}
                     />
                   );
                 })}
               </div>
-              <p className="text-[11px] font-mono text-slate-400 text-center">
-                Consistently committing code to full-stack & AI repositories.
-              </p>
             </div>
+            <p className="text-[11px] text-neutral-400 text-center leading-relaxed">
+              Consistently contributing code to high-availability production repositories.
+            </p>
           </div>
         </div>
+
       </div>
+
     </div>
   );
 };

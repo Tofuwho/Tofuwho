@@ -9,43 +9,38 @@ import { Footer } from './components/Footer';
 
 export function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
-  const [audioEnabled, setAudioEnabled] = useState<boolean>(true);
-
-  const playClickSound = () => {
-    if (!audioEnabled) return;
-    try {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(300, ctx.currentTime + 0.05);
-      
-      gain.gain.setValueAtTime(0.08, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
-      
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      
-      osc.start();
-      osc.stop(ctx.currentTime + 0.05);
-    } catch {
-      // Ignore audio restriction errors
-    }
-  };
+  const [audioEnabled, setAudioEnabled] = useState<boolean>(false);
 
   const handleTabChange = (tab: string) => {
-    playClickSound();
     setActiveTab(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <div className="min-h-screen bg-[#070510] text-slate-100 flex flex-col font-['Space_Grotesk'] selection:bg-[#ff007f] selection:text-white">
-      <div className="scanline-overlay" />
+    <div className="w-full min-h-screen bg-[#08090d] text-[#f3f4f6] flex flex-col font-sans selection:bg-indigo-500/30 selection:text-white relative overflow-x-hidden">
+      {/* Ambient Lighting Gradients */}
+      <div 
+        aria-hidden="true" 
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] sm:w-[1100px] h-[400px] bg-gradient-to-b from-indigo-500/15 via-purple-500/5 to-transparent blur-[120px] pointer-events-none -z-10" 
+      />
+      <div 
+        aria-hidden="true" 
+        className="fixed top-60 right-0 w-[450px] h-[300px] bg-cyan-500/10 blur-[130px] pointer-events-none -z-10" 
+      />
+      <div 
+        aria-hidden="true" 
+        className="fixed bottom-0 left-0 w-[500px] h-[300px] bg-indigo-600/10 blur-[140px] pointer-events-none -z-10" 
+      />
+
+      {/* Subtle Grid Texture */}
+      <div 
+        aria-hidden="true" 
+        className="fixed inset-0 pointer-events-none -z-10 opacity-[0.025]"
+        style={{
+          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
+          backgroundSize: '24px 24px'
+        }}
+      />
 
       <Navigation
         activeTab={activeTab}
@@ -54,7 +49,7 @@ export function App() {
         setAudioEnabled={setAudioEnabled}
       />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 lg:px-8 py-8">
+      <main className="w-full max-w-6xl mx-auto flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
         {activeTab === 'home' && <HomePage setActiveTab={handleTabChange} />}
         {activeTab === 'projects' && <ProjectsPage />}
         {activeTab === 'experience' && <ExperiencePage />}
