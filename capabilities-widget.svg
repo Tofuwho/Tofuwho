@@ -1,102 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 168" width="100%" height="100%">
   <style>
-    .font-sans {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    .font-mono {
-      font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-    }
-    .card-title {
-      font-weight: 700;
-      font-size: 10px;
-      fill: #facc15;
-      letter-spacing: 1.5px;
-    }
-    .label {
-      font-weight: 600;
-      font-size: 12px;
-      fill: #ffffff;
-    }
-    .value {
-      font-size: 10px;
-      font-weight: bold;
-      fill: #cbd5e1;
-    }
-    .bg-track {
-      fill: #0c081d;
-      stroke: #2e2252;
-      stroke-width: 1;
-      rx: 3px;
-    }
-    .bar-cyan {
-      fill: url(#cyan-grad);
-      rx: 3px;
-    }
-    .bar-gold {
-      fill: url(#gold-grad);
-      rx: 3px;
-    }
-    .bar-purple {
-      fill: url(#purple-grad);
-      rx: 3px;
-    }
-    .tick-mark {
-      stroke: #2e2252;
-      stroke-width: 0.8;
-    }
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Arial, sans-serif; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
   </style>
 
   <defs>
-    <!-- Sleek metallic gradients for bars -->
-    <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#083344" />
-      <stop offset="100%" stop-color="#06b6d4" />
+    <linearGradient id="gloss-cap" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#fbfbfd" />
+      <stop offset="100%" stop-color="#f3f4f6" />
     </linearGradient>
-    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#451a03" />
-      <stop offset="100%" stop-color="#facc15" />
-    </linearGradient>
-    <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2e1065" />
-      <stop offset="100%" stop-color="#a78bfa" />
+    <linearGradient id="gloss-sheen-cap" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
     </linearGradient>
   </defs>
 
-  <!-- Container Box -->
-  <rect width="100%" height="100%" fill="#130f26" stroke="#2e2252" stroke-width="1.5" rx="8" />
-  
-  <!-- Grid background details inside widget -->
-  <line x1="20" y1="36" x2="360" y2="36" stroke="#2e2252" stroke-width="0.8" opacity="0.5" />
+  <rect x="1" y="1" width="838" height="166" rx="16" fill="url(#gloss-cap)" stroke="#e5e7eb" stroke-width="1.4" />
+  <rect x="2" y="2" width="836" height="58" rx="15" fill="url(#gloss-sheen-cap)" />
 
-  <text x="20" y="26" class="font-sans card-title">SYSTEM_CAPABILITIES</text>
-  
-  <!-- Row 1: Full-Stack -->
-  <text x="20" y="52" class="font-sans label">Full-Stack Engineering</text>
-  <text x="360" y="52" class="font-mono value" text-anchor="end">92% [STABLE]</text>
-  <rect x="20" y="59" width="340" height="6" class="bg-track" />
-  <rect x="20" y="59" width="312.8" height="6" class="bar-cyan" />
-  <!-- Slider handle visual indicator -->
-  <rect x="330" y="56" width="3" height="12" rx="1.5" fill="#ffffff" opacity="0.9" />
-  <!-- Ticks underneath -->
-  <path d="M 20,68 L 20,71 M 105,68 L 105,71 M 190,68 L 190,71 M 275,68 L 275,71 M 360,68 L 360,71" class="tick-mark" />
+  <!-- Header -->
+  <text x="26" y="27" class="font-mono" font-size="10" font-weight="700" fill="#6b7280" letter-spacing="0.8">WHAT I WORK WITH</text>
+  <text x="814" y="27" class="font-mono" font-size="9.5" font-weight="600" fill="#6b7280" text-anchor="end">CLEAN, TESTED ARCHITECTURE</text>
+  <line x1="26" y1="38" x2="814" y2="38" stroke="#e5e7eb" stroke-width="1" />
 
-  <!-- Row 2: UI/UX Design -->
-  <text x="20" y="87" class="font-sans label">UI/UX &amp; Interface Design</text>
-  <text x="360" y="87" class="font-mono value" text-anchor="end">88% [OPTIMAL]</text>
-  <rect x="20" y="94" width="340" height="6" class="bg-track" />
-  <rect x="20" y="94" width="299.2" height="6" class="bar-gold" />
-  <!-- Slider handle visual indicator -->
-  <rect x="316" y="91" width="3" height="12" rx="1.5" fill="#ffffff" opacity="0.9" />
-  <!-- Ticks underneath -->
-  <path d="M 20,103 L 20,106 M 105,103 L 105,106 M 190,103 L 190,106 M 275,103 L 275,106 M 360,103 L 360,106" class="tick-mark" />
+  <!-- Col 1 -->
+  <g transform="translate(26, 52)">
+    <rect x="0" y="0" width="188" height="98" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="14" y="22" class="font-mono" font-size="9.5" font-weight="700" fill="#6b7280">01 · FULL-STACK</text>
+    <text x="14" y="44" class="font-sans" font-size="11.5" font-weight="600" fill="#111827">Next.js · React · TS</text>
+    <text x="14" y="63" class="font-sans" font-size="11.5" fill="#4b5563">Python · Django · FastAPI</text>
+    <text x="14" y="82" class="font-sans" font-size="11" fill="#6b7280">Node.js · Express · Electron</text>
+  </g>
 
-  <!-- Row 3: Automation -->
-  <text x="20" y="122" class="font-sans label">Workflow &amp; System Automation</text>
-  <text x="360" y="122" class="font-mono value" text-anchor="end">95% [STABLE]</text>
-  <rect x="20" y="129" width="340" height="6" class="bg-track" />
-  <rect x="20" y="129" width="323" height="6" class="bar-purple" />
-  <!-- Slider handle visual indicator -->
-  <rect x="340" y="126" width="3" height="12" rx="1.5" fill="#ffffff" opacity="0.9" />
-  <!-- Ticks underneath -->
-  <path d="M 20,138 L 20,141 M 105,138 L 105,141 M 190,138 L 190,141 M 275,138 L 275,141 M 360,138 L 360,141" class="tick-mark" />
+  <!-- Col 2 -->
+  <g transform="translate(226, 52)">
+    <rect x="0" y="0" width="188" height="98" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="14" y="22" class="font-mono" font-size="9.5" font-weight="700" fill="#6b7280">02 · DATA &amp; SEARCH</text>
+    <text x="14" y="44" class="font-sans" font-size="11.5" font-weight="600" fill="#111827">Polars · SheetJS · PDF.js</text>
+    <text x="14" y="63" class="font-sans" font-size="11.5" fill="#4b5563">PyMuPDF · RapidFuzz</text>
+    <text x="14" y="82" class="font-sans" font-size="11" fill="#6b7280">NLTK · Audit Lineage</text>
+  </g>
+
+  <!-- Col 3 -->
+  <g transform="translate(426, 52)">
+    <rect x="0" y="0" width="188" height="98" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="14" y="22" class="font-mono" font-size="9.5" font-weight="700" fill="#6b7280">03 · STORAGE &amp; RBAC</text>
+    <text x="14" y="44" class="font-sans" font-size="11.5" font-weight="600" fill="#111827">MariaDB · MySQL · SQLite</text>
+    <text x="14" y="63" class="font-sans" font-size="11.5" fill="#4b5563">SQLAlchemy · Alembic</text>
+    <text x="14" y="82" class="font-sans" font-size="11" fill="#6b7280">Roles · Fiscal DocGen</text>
+  </g>
+
+  <!-- Col 4 -->
+  <g transform="translate(626, 52)">
+    <rect x="0" y="0" width="188" height="98" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="14" y="22" class="font-mono" font-size="9.5" font-weight="700" fill="#6b7280">04 · QUALITY &amp; OPS</text>
+    <text x="14" y="44" class="font-sans" font-size="11.5" font-weight="600" fill="#111827">pytest · ruff · Django CI</text>
+    <text x="14" y="63" class="font-sans" font-size="11.5" fill="#4b5563">GitHub Actions · Docker</text>
+    <text x="14" y="82" class="font-sans" font-size="11" fill="#6b7280">Git-Flow · Live Deploy</text>
+  </g>
 </svg>

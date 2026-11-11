@@ -1,317 +1,270 @@
-import React from 'react';
-import { Award, ArrowRight, CheckCircle2, GitCommit, ChevronRight, Layers, Sparkles, Terminal, Code2, Database, ShieldCheck } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  ArrowRight,
+  Check,
+  CheckCircle2,
+  ChevronRight,
+  Copy,
+  ExternalLink,
+  Layers,
+} from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
+import { PROFILE_META, PROJECTS, WHAT_I_BRING } from '../data/portfolioData';
 
 interface HomePageProps {
   setActiveTab: (tab: string) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ setActiveTab }) => {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(PROFILE_META.email);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch {
+      window.location.href = `mailto:${PROFILE_META.email}`;
+    }
+  };
+
   const techCategories = [
     {
-      label: 'Core & Backend',
-      skills: ['Python', 'Django', 'TypeScript', 'Node.js', 'Express', 'Electron']
+      label: 'Full-Stack & Web',
+      skills: ['Python', 'Django 4.2', 'FastAPI', 'Next.js 16', 'React 19', 'TypeScript', 'Node.js', 'Electron'],
     },
     {
-      label: 'Search & Document AI',
-      skills: ['PyMuPDF', 'RapidFuzz', 'Levenshtein Distance', 'LLM Agentic Systems', 'Vector Search']
+      label: 'Data & Search',
+      skills: ['Polars', 'PyMuPDF', 'RapidFuzz', 'NLTK', 'SheetJS', 'PDF.js', 'Audit Lineage'],
     },
     {
-      label: 'Data & Infrastructure',
-      skills: ['MySQL', 'SQLite', 'REST APIs', 'GitHub Actions', 'CI/CD Pipelines', 'Git-Flow']
-    }
+      label: 'Databases, Testing & Ops',
+      skills: ['MariaDB', 'MySQL', 'SQLite', 'SQLAlchemy', 'pytest', 'ruff', 'Docker', 'GitHub Actions'],
+    },
   ];
 
   return (
-    <div className="w-full space-y-12 sm:space-y-16">
-      
-      {/* Hero Section */}
-      <section className="w-full pt-2 sm:pt-6">
-        <div className="glass-card p-6 sm:p-10 lg:p-12 text-center relative overflow-hidden">
-          {/* Subtle Ambient Radial Highlight inside card */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-indigo-500/10 blur-3xl pointer-events-none" />
+    <div className="w-full space-y-12 sm:space-y-14">
+      {/* Calm Gloss White Hero Introduction */}
+      <section className="w-full pt-2 sm:pt-4">
+        <div className="glass-card p-7 sm:p-11 lg:p-14 text-center relative">
+          <div className="max-w-2xl mx-auto flex flex-col items-center gap-5 sm:gap-6 relative z-10">
+            {/* Open for Hiring + Location Badge */}
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <div className="inline-flex items-center gap-2 rounded-full py-1 px-3.5 border border-emerald-200 bg-emerald-50">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-xs text-emerald-800 font-semibold">
+                  Open for Hiring · Remote, Hybrid &amp; On-Site
+                </span>
+              </div>
 
-          <div className="max-w-3xl mx-auto flex flex-col items-center gap-5 sm:gap-6 relative z-10">
-            {/* Academic Honor Badge */}
-            <div className="inline-flex items-center gap-2 glass-badge py-1 px-3.5 border border-indigo-400/20 bg-indigo-500/5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
-              <span className="text-xs text-neutral-300 font-medium">
-                BS Computer Science · Honor Standing (GWA 1.65)
-              </span>
+              <div className="inline-flex items-center gap-2 glass-badge py-1 px-3.5">
+                <span className="text-xs text-neutral-600 font-medium">NCR, Philippines</span>
+              </div>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-              Engineered with precision.<br />
-              <span className="gradient-text-accent">Built for real-world impact.</span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 leading-[1.15]">
+              Calm, reliable software.<br />
+              <span className="gradient-text-accent">Built for everyday clarity.</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-sm sm:text-base lg:text-lg text-neutral-400 leading-relaxed max-w-2xl font-normal">
-              I'm <strong className="text-white font-semibold">John Mark Cayabyab</strong>, a software engineer specializing in scalable full-stack architectures, high-uptime government systems, and intelligent document search engines.
+            {/* Clean Introduction */}
+            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl font-normal">
+              Hi, I'm <strong className="text-neutral-900 font-semibold">{PROFILE_META.name}</strong>{' '}
+              (<span className="font-mono text-neutral-700">{PROFILE_META.handle}</span>) — a Computer Science graduate
+              and full-stack developer building audited data platforms, document search tools, and production office systems.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 w-full">
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-1 w-full">
               <button
                 onClick={() => setActiveTab('projects')}
                 className="btn-primary text-xs sm:text-sm py-2.5 px-5"
               >
-                <span>Explore Projects</span>
+                <span>View Selected Builds</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
-                onClick={() => setActiveTab('experience')}
-                className="btn-secondary text-xs sm:text-sm py-2.5 px-5"
+                onClick={() => setActiveTab('contact')}
+                className="btn-emerald text-xs sm:text-sm py-2.5 px-5"
               >
-                <span>Government Experience</span>
+                <span>Get in Touch</span>
+              </button>
+
+              <button
+                onClick={handleCopyEmail}
+                className="btn-secondary text-xs sm:text-sm py-2.5 px-4"
+              >
+                {copiedEmail ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-600" />
+                    <span className="text-emerald-700">Copied {PROFILE_META.email}</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4 text-neutral-500" />
+                    <span>Copy Email</span>
+                  </>
+                )}
               </button>
 
               <a
-                href="https://github.com/Tofuwho"
+                href={PROFILE_META.githubUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-secondary text-xs sm:text-sm py-2.5 px-4"
               >
-                <GithubIcon className="w-4 h-4 text-neutral-300" />
+                <GithubIcon className="w-4 h-4 text-neutral-700" />
                 <span>GitHub</span>
               </a>
             </div>
-
-            {/* Quick Metrics Bar */}
-            <div className="pt-6 mt-4 border-t border-white/[0.08] w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-              <div>
-                <div className="text-xl sm:text-2xl font-bold text-white font-mono">1.65</div>
-                <div className="text-[11px] text-neutral-400 font-medium">GWA Honor Standing</div>
-              </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-bold text-amber-400 font-mono">1st Place</div>
-                <div className="text-[11px] text-neutral-400 font-medium">CICT Research Champion</div>
-              </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-bold text-indigo-400 font-mono">267+</div>
-                <div className="text-[11px] text-neutral-400 font-medium">Production Commits</div>
-              </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-bold text-emerald-400 font-mono">2 Systems</div>
-                <div className="text-[11px] text-neutral-400 font-medium">TESDA Live Deployment</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Key Accomplishments Section */}
+      {/* What I Bring to the Table */}
       <section className="w-full space-y-4">
-        <div className="flex items-center justify-between px-1">
-          <div>
-            <div className="text-xs font-semibold tracking-wider uppercase text-indigo-400 font-mono">
-              Proven Milestones
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mt-1">
-              Key Accomplishments
-            </h2>
+        <div className="px-1">
+          <div className="text-xs font-semibold tracking-wider uppercase text-neutral-500 font-mono">
+            Introduction
           </div>
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 mt-1">
+            What I Bring to the Table
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Card 1 */}
-          <div className="glass-card p-6 flex flex-col justify-between space-y-4 group">
-            <div className="flex items-center justify-between text-neutral-400">
-              <span className="text-xs font-semibold tracking-wide uppercase text-neutral-400 font-mono">Academic</span>
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-                <Award className="w-4 h-4 text-emerald-400" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {WHAT_I_BRING.map((item) => (
+            <div key={item.title} className="glass-card p-6 space-y-2.5">
+              <div className="flex items-center gap-2 text-emerald-700">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <h3 className="text-sm font-bold text-neutral-900">{item.title}</h3>
               </div>
+              <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed">
+                {item.description}
+              </p>
             </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-mono">1.65</div>
-              <div className="text-xs font-semibold text-neutral-300 mt-1">General Weighted Average</div>
-            </div>
-            <p className="text-xs text-neutral-400 leading-relaxed font-normal">
-              Taguig City University · BS Computer Science Graduate June 2026 (Final Term GPA: 1.53).
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="glass-card p-6 flex flex-col justify-between space-y-4 group">
-            <div className="flex items-center justify-between text-neutral-400">
-              <span className="text-xs font-semibold tracking-wide uppercase text-neutral-400 font-mono">Research</span>
-              <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-amber-400" />
-              </div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-mono">1st Place</div>
-              <div className="text-xs font-semibold text-neutral-300 mt-1">CICT Research Festival 2026</div>
-            </div>
-            <p className="text-xs text-neutral-400 leading-relaxed font-normal">
-              Principal Investigator for high-efficiency document search and fuzzy matching algorithms.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="glass-card p-6 flex flex-col justify-between space-y-4 group">
-            <div className="flex items-center justify-between text-neutral-400">
-              <span className="text-xs font-semibold tracking-wide uppercase text-neutral-400 font-mono">Velocity</span>
-              <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
-                <GitCommit className="w-4 h-4 text-indigo-400" />
-              </div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-mono">267+</div>
-              <div className="text-xs font-semibold text-neutral-300 mt-1">Production Commits</div>
-            </div>
-            <p className="text-xs text-neutral-400 leading-relaxed font-normal">
-              ThesisLibrary repository built with automated CI/CD workflows and strict git-flow standards.
-            </p>
-          </div>
-
-          {/* Card 4 */}
-          <div className="glass-card p-6 flex flex-col justify-between space-y-4 group">
-            <div className="flex items-center justify-between text-neutral-400">
-              <span className="text-xs font-semibold tracking-wide uppercase text-neutral-400 font-mono">Production</span>
-              <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
-              </div>
-            </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-mono">2 Systems</div>
-              <div className="text-xs font-semibold text-neutral-300 mt-1">TESDA Service Office</div>
-            </div>
-            <p className="text-xs text-neutral-400 leading-relaxed font-normal">
-              Real-time Queue Management Engine & Automated Fiscal Procurement Ledger deployed live.
-            </p>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Featured Architecture Section */}
+      {/* Selected Repositories (3 focused builds) */}
       <section className="w-full space-y-5">
         <div className="flex items-center justify-between px-1">
           <div>
-            <div className="text-xs font-semibold tracking-wider uppercase text-indigo-400 font-mono">
-              Production Architectures
+            <div className="text-xs font-semibold tracking-wider uppercase text-neutral-500 font-mono">
+              Selected Repositories
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mt-1">
-              Flagship Systems
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 mt-1">
+              Featured Work ({PROJECTS.length})
             </h2>
           </div>
           <button
             onClick={() => setActiveTab('projects')}
-            className="text-xs font-semibold text-neutral-400 hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
+            className="text-xs font-semibold text-neutral-600 hover:text-neutral-900 flex items-center gap-1 transition-colors cursor-pointer"
           >
-            <span>View all 5 projects</span>
+            <span>Inspect details</span>
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* System 1: ThesisLibrary */}
-          <div
-            onClick={() => setActiveTab('projects')}
-            className="glass-card p-6 sm:p-8 flex flex-col justify-between space-y-6 group cursor-pointer"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between gap-2">
-                <span className="glass-badge bg-indigo-500/10 border-indigo-500/20 text-indigo-300">
-                  AI & Search Engine
-                </span>
-                <span className="text-xs font-mono text-neutral-400">Sub-second Latency</span>
-              </div>
-
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-indigo-300 transition-colors">
-                  ThesisLibrary Academic Search Engine
-                </h3>
-                <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed">
-                  A high-throughput search system combining weighted metadata indexing, PyMuPDF full-document binary scans, and RapidFuzz Levenshtein distance typo auto-correction.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {['Python', 'Django', 'PyMuPDF', 'RapidFuzz', 'GitHub Actions', 'CI/CD'].map((t) => (
-                  <span key={t} className="text-xs px-2.5 py-1 rounded-lg bg-white/[0.04] text-neutral-300 border border-white/[0.06]">
-                    {t}
+        <div className="space-y-4">
+          {PROJECTS.map((project, index) => (
+            <div
+              key={project.id}
+              className="glass-card p-6 sm:p-7 flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+            >
+              <div className="space-y-3 max-w-2xl">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-mono font-semibold text-neutral-500">
+                    0{index + 1} · {project.category}
                   </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
-              <span className="text-xs text-neutral-400 font-mono">267+ Commits · CI/CD Verified</span>
-              <span className="text-xs font-semibold text-white flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
-                <span>Inspect Architecture</span>
-                <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />
-              </span>
-            </div>
-          </div>
-
-          {/* System 2: TESDA Systems */}
-          <div
-            onClick={() => setActiveTab('experience')}
-            className="glass-card p-6 sm:p-8 flex flex-col justify-between space-y-6 group cursor-pointer"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between gap-2">
-                <span className="glass-badge bg-emerald-500/10 border-emerald-500/20 text-emerald-300">
-                  Government Systems
-                </span>
-                <span className="text-xs font-mono text-neutral-400">Feb – May 2026</span>
-              </div>
-
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-emerald-300 transition-colors">
-                  TESDA Real-Time Queue & Fiscal Ledger
-                </h3>
-                <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed">
-                  Replaced physical paper ticketing and manual budget registers with a live asynchronous queue monitor and automated document generation for RIS, PR, PO, and PPMP records.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {['Asynchronous QMS', 'Fiscal DocGen', 'Subnet Routing', 'High Uptime'].map((t) => (
-                  <span key={t} className="text-xs px-2.5 py-1 rounded-lg bg-white/[0.04] text-neutral-300 border border-white/[0.06]">
-                    {t}
+                  <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    {project.status}
                   </span>
-                ))}
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold tracking-tight text-neutral-900">{project.title}</h3>
+                  <p className="text-xs text-neutral-500 font-medium mt-0.5">{project.subtitle}</p>
+                  <p className="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {project.tags.slice(0, 6).map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-700 border border-black/[0.06]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap lg:flex-col items-stretch lg:items-end justify-end gap-2.5 shrink-0">
+                {project.liveDemoUrl && (
+                  <a
+                    href={project.liveDemoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-emerald text-xs py-2 px-4"
+                  >
+                    <span>{project.liveDemoLabel ?? 'Live Demo'}</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-secondary text-xs py-2 px-4"
+                >
+                  <GithubIcon className="w-3.5 h-3.5" />
+                  <span>View Repository</span>
+                </a>
               </div>
             </div>
-
-            <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
-              <span className="text-xs text-neutral-400 font-mono">Live Office Deployment</span>
-              <span className="text-xs font-semibold text-white flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
-                <span>Explore Defense Logs</span>
-                <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
-              </span>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Technical Matrix Breakdown */}
+      {/* Clean Technical Stack */}
       <section className="glass-card p-6 sm:p-8 space-y-6">
-        <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+        <div className="flex items-center justify-between border-b border-black/[0.08] pb-4">
           <div className="flex items-center gap-2.5">
-            <Layers className="w-5 h-5 text-indigo-400" />
-            <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
-              Technical Matrix & Tooling
+            <Layers className="w-5 h-5 text-neutral-700" />
+            <h2 className="text-base sm:text-lg font-bold text-neutral-900 tracking-tight">
+              Technical Stack
             </h2>
           </div>
-          <span className="text-xs text-neutral-400 font-mono hidden sm:inline">100% Production Ready</span>
+          <button
+            onClick={() => setActiveTab('experience')}
+            className="text-xs text-neutral-600 hover:text-neutral-900 font-mono flex items-center gap-1 cursor-pointer"
+          >
+            <span>TESDA &amp; Background</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {techCategories.map((cat) => (
             <div key={cat.label} className="space-y-3">
-              <div className="text-xs font-semibold uppercase tracking-wider text-neutral-400 font-mono">
+              <div className="text-xs font-semibold uppercase tracking-wider text-neutral-500 font-mono">
                 {cat.label}
               </div>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-neutral-200 border border-white/[0.07] hover:bg-white/[0.08] hover:border-indigo-400/30 transition-all cursor-default"
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-neutral-700 border border-black/[0.08] shadow-2xs"
                   >
                     {skill}
                   </span>
@@ -321,7 +274,6 @@ export const HomePage: React.FC<HomePageProps> = ({ setActiveTab }) => {
           ))}
         </div>
       </section>
-
     </div>
   );
 };

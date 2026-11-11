@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 156" width="100%" height="100%">
+  <style>
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Arial, sans-serif; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+
+  <defs>
+    <linearGradient id="gloss-card-tl" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#fbfbfd" />
+      <stop offset="100%" stop-color="#f3f4f6" />
+    </linearGradient>
+    <linearGradient id="gloss-sheen-tl" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect x="1" y="1" width="838" height="154" rx="16" fill="url(#gloss-card-tl)" stroke="#e5e7eb" stroke-width="1.4" />
+  <rect x="2" y="2" width="836" height="62" rx="15" fill="url(#gloss-sheen-tl)" />
+  <line x1="22" y1="2.5" x2="818" y2="2.5" stroke="#ffffff" stroke-width="1.1" />
+
+  <!-- Header Row -->
+  <text x="28" y="30" class="font-mono" font-size="10" font-weight="700" fill="#6b7280" letter-spacing="0.8">02 · INSTITUTIONAL DIGITAL REPOSITORY &amp; HYBRID SEARCH</text>
+  <rect x="716" y="15" width="96" height="22" rx="11" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+  <circle cx="730" cy="26" r="3" fill="#10b981" />
+  <text x="771" y="29.5" class="font-mono" font-size="9.5" font-weight="700" fill="#047857" text-anchor="middle">LIVE DEMO</text>
+
+  <!-- Title & Calm Description -->
+  <text x="28" y="62" class="font-sans" font-size="21" font-weight="800" fill="#111827">ThesisLibrary</text>
+  <text x="28" y="86" class="font-sans" font-size="12.5" fill="#4b5563">Digital theses and dissertations OPAC built with Django 4.2, hybrid NLP &amp; PyMuPDF deep PDF search,</text>
+  <text x="28" y="104" class="font-sans" font-size="12.5" fill="#4b5563">RapidFuzz query correction, server-side watermarked PDF viewing, and Dublin Core cataloging.</text>
+
+  <!-- Tech Stack Pills -->
+  <g transform="translate(28, 118)">
+    <rect x="0" y="0" width="86" height="22" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="43" y="14.5" class="font-mono" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">Django 4.2</text>
+
+    <rect x="94" y="0" width="74" height="22" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="131" y="14.5" class="font-mono" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">PyMuPDF</text>
+
+    <rect x="176" y="0" width="82" height="22" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="217" y="14.5" class="font-mono" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">RapidFuzz</text>
+
+    <rect x="266" y="0" width="60" height="22" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="296" y="14.5" class="font-mono" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">NLTK</text>
+
+    <rect x="334" y="0" width="122" height="22" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="395" y="14.5" class="font-mono" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">MariaDB / SQLite</text>
+
+    <rect x="464" y="0" width="68" height="22" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="498" y="14.5" class="font-mono" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">Docker</text>
+  </g>
+</svg>

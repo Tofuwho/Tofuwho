@@ -1,216 +1,204 @@
-import React, { useState } from 'react';
-import { Briefcase, GraduationCap, Award, CheckCircle2, FileText, RefreshCw, Terminal, ArrowRight } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  ArrowRight,
+  Briefcase,
+  ExternalLink,
+  GraduationCap,
+  RefreshCw,
+  Terminal,
+} from 'lucide-react';
 
-export const ExperiencePage: React.FC = () => {
+interface ExperiencePageProps {
+  setActiveTab: (tab: string) => void;
+}
+
+export const ExperiencePage: React.FC<ExperiencePageProps> = ({ setActiveTab }) => {
   const [activeDocType, setActiveDocType] = useState<'RIS' | 'PR' | 'PO' | 'PPMP' | 'APP-CSE'>('RIS');
   const [docGenerating, setDocGenerating] = useState<boolean>(false);
   const [generatedLogs, setGeneratedLogs] = useState<string[]>([
-    'Fiscal document compiler ready.',
-    'Select any document type above to simulate automated government compilation.'
+    'Procurement schema inspector ready.',
+    'Select any document type above to test automated validation.',
   ]);
+  const timersRef = useRef<number[]>([]);
+
+  useEffect(() => {
+    return () => {
+      timersRef.current.forEach((id) => window.clearTimeout(id));
+    };
+  }, []);
 
   const docDescriptions = {
-    'RIS': 'Requisition and Issue Slip — Dispatches inventory items to regional service units with automatic balance reconciliation.',
-    'PR': 'Purchase Request — Verifies unit item pricing against government price thresholds and validates budgetary approval.',
-    'PO': 'Purchase Order — Formally binds vendor supplier commitments against government procurement regulations.',
-    'PPMP': 'Project Procurement Management Plan — Consolidates annual department item projections for budget alignment.',
-    'APP-CSE': 'Annual Procurement Plan for Common-Use Supplies and Equipment — Standardized DBM format required for government compliance.'
+    RIS: 'Requisition and Issue Slip — Dispatches inventory items to service units with automatic balance updates.',
+    PR: 'Purchase Request — Verifies unit item pricing against agency price ceilings and budgetary approval.',
+    PO: 'Purchase Order — Formally binds supplier commitments against government procurement rules.',
+    PPMP: 'Project Procurement Management Plan — Consolidates quarterly departmental projections for budget planning.',
+    'APP-CSE':
+      'Annual Procurement Plan for Common-Use Supplies and Equipment — Standardized agency-wide procurement format.',
   };
 
   const handleGenerateDoc = (doc: 'RIS' | 'PR' | 'PO' | 'PPMP' | 'APP-CSE') => {
+    timersRef.current.forEach((id) => window.clearTimeout(id));
+    timersRef.current = [];
+
     setActiveDocType(doc);
     setDocGenerating(true);
     const now = new Date().toLocaleTimeString();
 
-    setGeneratedLogs([
-      `[${now}] Initiating validation for government schema: ${doc}...`
-    ]);
+    setGeneratedLogs([`[${now}] Checking schema fields for ${doc}...`]);
 
-    setTimeout(() => {
-      setGeneratedLogs(prev => [
+    const t1 = window.setTimeout(() => {
+      setGeneratedLogs((prev) => [
         ...prev,
-        `[${now}] Querying SQL database for fiscal budget allotment...`
+        `[${now}] Verifying MOOE / Capital Outlay ceiling and line-item balance...`,
       ]);
-    }, 350);
+    }, 320);
 
-    setTimeout(() => {
-      setGeneratedLogs(prev => [
+    const t2 = window.setTimeout(() => {
+      setGeneratedLogs((prev) => [
         ...prev,
-        `[${now}] Compiling document fields against TESDA procurement regulations...`,
-        `[${now}] STATUS: Successfully generated and verified ${doc} record (Execution: 18ms).`
+        `[${now}] Preparing printable layout for office review...`,
+        `[${now}] STATUS: Validated ${doc} record cleanly (18ms).`,
       ]);
       setDocGenerating(false);
-    }, 750);
+    }, 700);
+
+    timersRef.current = [t1, t2];
   };
 
   return (
     <div className="w-full space-y-10 sm:space-y-12">
-      
       {/* Header */}
-      <div className="space-y-2">
-        <div className="inline-flex items-center gap-2 glass-badge">
-          <Briefcase className="w-3.5 h-3.5 text-indigo-400" />
-          <span>Professional Background</span>
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-2 glass-badge">
+            <Briefcase className="w-3.5 h-3.5 text-emerald-700" />
+            <span>Background &amp; Experience</span>
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900">
+            Experience
+          </h1>
+          <p className="text-neutral-600 text-sm sm:text-base max-w-2xl leading-relaxed">
+            Production government office systems, independent execution, and practical full-stack engineering.
+          </p>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-          Experience & Milestones
-        </h1>
-        <p className="text-neutral-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-          Government software engineering, research achievements, and academic honors.
-        </p>
+
+        <button onClick={() => setActiveTab('contact')} className="btn-emerald text-xs py-2 px-4 shrink-0">
+          <span>Get in Touch</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        {/* Left Column: Timeline & Honors */}
+        {/* Left Column: Experience & Education */}
         <div className="lg:col-span-7 space-y-6">
-          
           {/* TESDA Experience Card */}
           <div className="glass-card p-6 sm:p-8 space-y-5">
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-              <div>
-                <span className="glass-badge bg-emerald-500/10 text-emerald-300 border-emerald-500/20">
-                  Government Service · OJT
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mt-2">
-                  TESDA Government Service Office
-                </h3>
-                <p className="text-xs text-neutral-400 font-medium mt-0.5 font-mono">
-                  IT Engineer & Full-Stack Developer · Feb – May 2026
-                </p>
-              </div>
+            <div>
+              <span className="glass-badge bg-emerald-50 text-emerald-800 border-emerald-200">
+                Government Service · OJT
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 mt-2">
+                TESDA Muntiparlastapat District Office
+              </h3>
+              <p className="text-xs text-neutral-500 font-medium mt-0.5 font-mono">
+                OJT IT Engineer &amp; Full-Stack Developer · Feb 2026 – May 2026
+              </p>
             </div>
 
-            <p className="text-sm text-neutral-300 leading-relaxed font-normal">
-              Operated with autonomy under minimal supervision to modernize paper-heavy administrative operations into production-grade digital software systems used daily by government officers and citizens.
+            <p className="text-sm text-neutral-600 leading-relaxed font-normal">
+              Worked independently under minimal supervision to replace paper-heavy administrative processes with dependable daily-use software systems.
             </p>
 
             <div className="space-y-3 pt-1">
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-                <div className="text-xs font-semibold text-white flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+              <div className="p-4 rounded-xl bg-white/80 border border-black/[0.06] space-y-1">
+                <div className="text-xs font-semibold text-neutral-900 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                   <span>Real-Time Queue Management System (QMS)</span>
                 </div>
-                <p className="text-xs text-neutral-400 leading-relaxed pl-3.5">
-                  Architected an asynchronous queuing engine from scratch, replacing physical paper tickets with real-time digital ticket tracking and service window monitoring.
+                <p className="text-xs text-neutral-600 leading-relaxed pl-3.5">
+                  Built an asynchronous queuing tool from scratch, replacing manual paper tickets with live queue dispatching and service window tracking.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-                <div className="text-xs font-semibold text-white flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  <span>Automated Fiscal Procurement Ledger</span>
+              <div className="p-4 rounded-xl bg-white/80 border border-black/[0.06] space-y-1">
+                <div className="text-xs font-semibold text-neutral-900 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-700"></span>
+                  <span>Procurement Ledger &amp; Document Generator</span>
                 </div>
-                <p className="text-xs text-neutral-400 leading-relaxed pl-3.5">
-                  Engineered automated government document generation and validation for RIS, PR, PO, PPMP, and APP-CSE budget processing.
+                <p className="text-xs text-neutral-600 leading-relaxed pl-3.5">
+                  Managed fiscal year budget data with automated preparation of RIS, PR, PO, PPMP, and APP-CSE procurement documents.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-                <div className="text-xs font-semibold text-white flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                  <span>Infrastructure & Network Reliability</span>
+              <div className="p-4 rounded-xl bg-white/80 border border-black/[0.06] space-y-1">
+                <div className="text-xs font-semibold text-neutral-900 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+                  <span>Hardware Diagnostics &amp; Network Support</span>
                 </div>
-                <p className="text-xs text-neutral-400 leading-relaxed pl-3.5">
-                  Diagnosed hardware and system faults under strict uptime demands; routed network printer subnets across administrative terminal stations.
+                <p className="text-xs text-neutral-600 leading-relaxed pl-3.5">
+                  Diagnosed hardware faults during live office operations and configured network printer subnet routing across workstations.
                 </p>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.07]">
-              {['Asynchronous QMS', 'Fiscal Ledger', 'Subnet Routing', 'High Uptime'].map(t => (
-                <span key={t} className="text-xs px-2.5 py-1 rounded-md bg-white/[0.04] text-neutral-300 border border-white/[0.06]">
+            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-black/[0.08]">
+              {['Async QMS', 'Fiscal Ledger', 'Subnet Routing', 'Office Operations'].map((t) => (
+                <span
+                  key={t}
+                  className="text-xs px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 border border-black/[0.06]"
+                >
                   {t}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Academic & Research Honors */}
-          <div className="glass-card p-6 sm:p-8 space-y-5">
+          {/* Education (Clean, without GWA or awards spotlight) */}
+          <div className="glass-card p-6 sm:p-8 space-y-4">
             <div>
-              <span className="glass-badge bg-indigo-500/10 text-indigo-300 border-indigo-500/20">
-                Education & Honors
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mt-2 flex items-center gap-2">
-                <GraduationCap className="w-6 h-6 text-indigo-400" />
+              <span className="glass-badge">Education</span>
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 mt-2 flex items-center gap-2">
+                <GraduationCap className="w-6 h-6 text-neutral-700" />
                 <span>Taguig City University</span>
               </h3>
-              <p className="text-xs text-neutral-400 font-medium mt-0.5 font-mono">
-                B.S. Computer Science · Graduated June 2026 · GWA: 1.65 (Final Term GPA: 1.53)
+              <p className="text-xs text-neutral-500 font-medium mt-0.5 font-mono">
+                B.S. Computer Science · June 2026
               </p>
             </div>
 
-            <div className="space-y-3">
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <Award className="w-4 h-4 text-amber-400" />
-                </div>
-                <div className="space-y-0.5">
-                  <h4 className="text-sm font-semibold text-white">Grand Champion (1st Place)</h4>
-                  <p className="text-xs text-neutral-400 leading-relaxed">
-                    CICT 2026 University Research Festival as Principal Investigator for operational data optimization & fuzzy search algorithms.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-4 h-4 text-indigo-400" />
-                </div>
-                <div className="space-y-0.5">
-                  <h4 className="text-sm font-semibold text-white">1st Runner-Up</h4>
-                  <p className="text-xs text-neutral-400 leading-relaxed">
-                    TCU Institutional Systems Fair for high-performance software system design.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <FileText className="w-4 h-4 text-emerald-400" />
-                </div>
-                <div className="space-y-0.5">
-                  <h4 className="text-sm font-semibold text-white">Selected Presenter</h4>
-                  <p className="text-xs text-neutral-400 leading-relaxed">
-                    2nd Annual University Research Symposium presenting rapid PDF indexing algorithms.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+              Focused on full-stack web architectures, relational database design, document indexing and search pipelines, and practical software testing.
+            </p>
           </div>
-
         </div>
 
-        {/* Right Column: macOS Style Government Utility Inspector */}
+        {/* Right Column: Interactive Procurement Schema Inspector */}
         <div className="lg:col-span-5 w-full">
           <div className="glass-card p-6 space-y-5 sticky top-24">
-            
-            {/* Window Title Bar */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+            <div className="flex items-center justify-between pb-3 border-b border-black/[0.08]">
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#ff5f56]/90 shadow-sm"></span>
-                <span className="w-3 h-3 rounded-full bg-[#ffbd2e]/90 shadow-sm"></span>
-                <span className="w-3 h-3 rounded-full bg-[#27c93f]/90 shadow-sm"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-neutral-300"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-neutral-300"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-neutral-300"></span>
               </div>
-              <span className="text-xs font-semibold text-neutral-300 font-mono">TESDA Fiscal Inspector</span>
-              <span className="text-[10px] text-emerald-400 font-mono font-medium">LIVE COMPILER</span>
+              <span className="text-xs font-semibold text-neutral-700 font-mono">Procurement Schema Inspector</span>
+              <span className="text-[10px] text-emerald-700 font-mono font-semibold">INTERACTIVE</span>
             </div>
 
-            <p className="text-xs text-neutral-400 leading-relaxed">
-              Test automated compilation and validation of government fiscal records:
+            <p className="text-xs text-neutral-600 leading-relaxed">
+              Test automated validation across standard procurement forms, or launch the full client-side{' '}
+              <strong className="text-neutral-900">app-cse-public-demo</strong> sandbox:
             </p>
 
-            {/* Document Type Selector Buttons */}
-            <div className="grid grid-cols-5 gap-1 p-1 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+            <div className="grid grid-cols-5 gap-1 p-1 rounded-xl bg-neutral-100 border border-black/[0.06]">
               {(['RIS', 'PR', 'PO', 'PPMP', 'APP-CSE'] as const).map((doc) => (
                 <button
                   key={doc}
                   onClick={() => handleGenerateDoc(doc)}
                   className={`py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                     activeDocType === doc
-                      ? 'bg-white text-black shadow-md'
-                      : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]'
+                      ? 'bg-neutral-900 text-white shadow-sm'
+                      : 'text-neutral-600 hover:text-neutral-900 hover:bg-white/60'
                   }`}
                 >
                   {doc}
@@ -218,29 +206,25 @@ export const ExperiencePage: React.FC = () => {
               ))}
             </div>
 
-            {/* Document Definition */}
-            <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-              <div className="text-xs font-semibold text-white">Document Type: {activeDocType}</div>
-              <p className="text-xs text-neutral-400 leading-relaxed">
-                {docDescriptions[activeDocType]}
-              </p>
+            <div className="p-3.5 rounded-xl bg-white/90 border border-black/[0.06] space-y-1">
+              <div className="text-xs font-semibold text-neutral-900">Document Type: {activeDocType}</div>
+              <p className="text-xs text-neutral-600 leading-relaxed">{docDescriptions[activeDocType]}</p>
             </div>
 
-            {/* Terminal Log Console */}
-            <div className="p-4 rounded-xl bg-black/75 border border-white/10 font-mono text-xs space-y-2">
-              <div className="flex items-center justify-between text-neutral-400 pb-2 border-b border-white/5 text-[11px]">
+            <div className="p-4 rounded-xl bg-neutral-900 border border-black/10 font-mono text-xs space-y-2 text-neutral-200">
+              <div className="flex items-center justify-between text-neutral-400 pb-2 border-b border-white/10 text-[11px]">
                 <div className="flex items-center gap-1.5">
-                  <Terminal className="w-3.5 h-3.5 text-indigo-400" />
-                  <span>Validation Stream</span>
+                  <Terminal className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Validation Output</span>
                 </div>
-                {docGenerating && <RefreshCw className="w-3 h-3 text-indigo-400 animate-spin" />}
+                {docGenerating && <RefreshCw className="w-3 h-3 text-emerald-400 animate-spin" />}
               </div>
 
-              <div className="space-y-1.5 max-h-40 overflow-y-auto text-neutral-300 text-[11px]">
+              <div className="space-y-1.5 max-h-40 overflow-y-auto text-[11px]">
                 {generatedLogs.map((log, idx) => (
                   <div key={idx} className="flex items-start gap-2">
                     <span className="text-neutral-500 font-bold">›</span>
-                    <span className={log.includes('Successfully') ? 'text-emerald-400 font-medium' : ''}>
+                    <span className={log.includes('Validated') ? 'text-emerald-400 font-medium' : ''}>
                       {log}
                     </span>
                   </div>
@@ -248,14 +232,18 @@ export const ExperiencePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="text-[11px] text-neutral-500 text-center font-mono">
-              Deployed in live operations at TESDA Service Office (Feb – May 2026)
-            </div>
+            <a
+              href="https://tofuwho.github.io/app-cse-public-demo/"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full btn-emerald text-xs py-2.5"
+            >
+              <span>Launch app-cse-public-demo Sandbox</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
-
       </div>
-
     </div>
   );
 };

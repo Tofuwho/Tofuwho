@@ -9,7 +9,6 @@ import { Footer } from './components/Footer';
 
 export function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
-  const [audioEnabled, setAudioEnabled] = useState<boolean>(false);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -17,42 +16,19 @@ export function App() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#08090d] text-[#f3f4f6] flex flex-col font-sans selection:bg-indigo-500/30 selection:text-white relative overflow-x-hidden">
-      {/* Ambient Lighting Gradients */}
-      <div 
-        aria-hidden="true" 
-        className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] sm:w-[1100px] h-[400px] bg-gradient-to-b from-indigo-500/15 via-purple-500/5 to-transparent blur-[120px] pointer-events-none -z-10" 
-      />
-      <div 
-        aria-hidden="true" 
-        className="fixed top-60 right-0 w-[450px] h-[300px] bg-cyan-500/10 blur-[130px] pointer-events-none -z-10" 
-      />
-      <div 
-        aria-hidden="true" 
-        className="fixed bottom-0 left-0 w-[500px] h-[300px] bg-indigo-600/10 blur-[140px] pointer-events-none -z-10" 
+    <div className="w-full min-h-screen bg-[#f5f5f7] text-[#1d1d1f] flex flex-col font-sans selection:bg-emerald-500/20 selection:text-neutral-900 relative overflow-x-hidden">
+      {/* Subtle Pure White & Warm Neutral Gloss Ambient Layer */}
+      <div
+        aria-hidden="true"
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] sm:w-[1200px] h-[380px] bg-gradient-to-b from-white via-white/60 to-transparent blur-[90px] pointer-events-none -z-10"
       />
 
-      {/* Subtle Grid Texture */}
-      <div 
-        aria-hidden="true" 
-        className="fixed inset-0 pointer-events-none -z-10 opacity-[0.025]"
-        style={{
-          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
-          backgroundSize: '24px 24px'
-        }}
-      />
+      <Navigation activeTab={activeTab} setActiveTab={handleTabChange} />
 
-      <Navigation
-        activeTab={activeTab}
-        setActiveTab={handleTabChange}
-        audioEnabled={audioEnabled}
-        setAudioEnabled={setAudioEnabled}
-      />
-
-      <main className="w-full max-w-6xl mx-auto flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <main className="w-full max-w-5xl mx-auto flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
         {activeTab === 'home' && <HomePage setActiveTab={handleTabChange} />}
         {activeTab === 'projects' && <ProjectsPage />}
-        {activeTab === 'experience' && <ExperiencePage />}
+        {activeTab === 'experience' && <ExperiencePage setActiveTab={handleTabChange} />}
         {activeTab === 'capabilities' && <CapabilitiesPage />}
         {activeTab === 'contact' && <ContactPage />}
       </main>

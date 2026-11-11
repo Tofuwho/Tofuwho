@@ -1,229 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%">
-  <!-- Style block for custom fonts and transitions -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 238" width="100%" height="100%">
   <style>
-    @keyframes flow {
-      to {
-        stroke-dashoffset: -20;
-      }
-    }
     @keyframes pulse {
-      0%, 100% { opacity: 0.6; }
+      0%, 100% { opacity: 0.5; }
       50% { opacity: 1; }
     }
     .font-sans {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
     .font-mono {
-      font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-    }
-    .title {
-      font-weight: 800;
-      font-size: 28px;
-      fill: #ffffff;
-      letter-spacing: -0.3px;
-    }
-    .subtitle {
-      font-weight: 600;
-      font-size: 13.5px;
-      fill: #facc15;
-      letter-spacing: 0.3px;
-    }
-    .desc {
-      font-weight: 400;
-      font-size: 12px;
-      fill: #94a3b8;
-    }
-    .tag {
-      font-weight: bold;
-      font-size: 10px;
-      fill: #06b6d4;
-    }
-    .tag-border {
-      fill: #1e1b4b;
-      stroke: #06b6d4;
-      stroke-width: 1.2;
-    }
-    .panel-bg {
-      fill: #130f26;
-      fill-opacity: 0.8;
-      stroke: #2e2252;
-      stroke-width: 1.5;
-    }
-    .node {
-      fill: #1a153b;
-      stroke: #2e2252;
-      stroke-width: 1.5;
-    }
-    .node-active-cyan {
-      stroke: #06b6d4;
-    }
-    .node-active-gold {
-      stroke: #facc15;
-    }
-    .node-active-purple {
-      stroke: #a78bfa;
-    }
-    .link-flow {
-      stroke-width: 1.5;
-      stroke-dasharray: 6 4;
-      animation: flow 1.5s linear infinite;
-    }
-    .link-flow-cyan {
-      stroke: #06b6d4;
-    }
-    .link-flow-gold {
-      stroke: #facc15;
-    }
-    .link-flow-purple {
-      stroke: #a78bfa;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
     .pulse-dot {
-      animation: pulse 2s infinite ease-in-out;
-    }
-    .coordinate-tick {
-      stroke: #2e2252;
-      stroke-width: 1;
-      opacity: 0.6;
-    }
-    .coordinate-text {
-      font-size: 9px;
-      fill: #475569;
+      animation: pulse 2.4s infinite ease-in-out;
     }
   </style>
 
-  <!-- Background Gradients -->
   <defs>
-    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090518" />
-      <stop offset="60%" stop-color="#0f0c24" />
-      <stop offset="100%" stop-color="#181335" />
+    <linearGradient id="gloss-surface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="55%" stop-color="#fbfbfd" />
+      <stop offset="100%" stop-color="#f2f4f7" />
     </linearGradient>
-    <radialGradient id="glow-purple" cx="85%" cy="30%" r="55%">
-      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="glow-cyan" cx="20%" cy="80%" r="50%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12" />
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
-    </radialGradient>
-    <pattern id="grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#231b46" stroke-width="0.8" stroke-opacity="0.6" />
-      <circle cx="0" cy="0" r="1" fill="#4c3a85" opacity="0.5" />
-    </pattern>
+    <linearGradient id="top-sheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="inner-panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
   </defs>
 
-  <!-- Background Layer -->
-  <rect width="100%" height="100%" fill="url(#bg-grad)" />
-  <rect width="100%" height="100%" fill="url(#glow-purple)" />
-  <rect width="100%" height="100%" fill="url(#glow-cyan)" />
-  <rect width="100%" height="100%" fill="url(#grid)" />
+  <!-- Outer Gloss White Card -->
+  <rect x="1" y="1" width="878" height="236" rx="20" fill="url(#gloss-surface)" stroke="#e5e7eb" stroke-width="1.4" />
+  <rect x="2" y="2" width="876" height="96" rx="19" fill="url(#top-sheen)" />
+  <line x1="24" y1="2.5" x2="856" y2="2.5" stroke="#ffffff" stroke-width="1.2" />
 
-  <!-- Coordinates &amp; Blueprint Details -->
-  <line x1="0" y1="1" x2="800" y2="1" stroke="#2e2252" stroke-width="1.2" />
-  <line x1="0" y1="239" x2="800" y2="239" stroke="#2e2252" stroke-width="1.2" />
-  
-  <!-- Coordinate ticks and labels -->
-  <path d="M 100,0 L 100,6 M 200,0 L 200,6 M 300,0 L 300,6 M 400,0 L 400,6 M 500,0 L 500,6 M 600,0 L 600,6 M 700,0 L 700,6" class="coordinate-tick" />
-  <path d="M 100,240 L 100,234 M 200,240 L 200,234 M 300,240 L 300,234 M 400,240 L 400,234 M 500,240 L 500,234 M 600,240 L 600,234 M 700,240 L 700,234" class="coordinate-tick" />
-  <text x="100" y="14" class="font-mono coordinate-text" text-anchor="middle">100_PX</text>
-  <text x="300" y="14" class="font-mono coordinate-text" text-anchor="middle">300_PX</text>
-  <text x="500" y="14" class="font-mono coordinate-text" text-anchor="middle">500_PX</text>
-  <text x="700" y="14" class="font-mono coordinate-text" text-anchor="middle">700_PX</text>
+  <!-- Top Status Pills -->
+  <g transform="translate(40, 28)">
+    <rect x="0" y="0" width="166" height="24" rx="12" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <circle cx="14" cy="12" r="3.5" fill="#10b981" class="pulse-dot" />
+    <text x="25" y="15.5" class="font-mono" font-size="10" font-weight="700" fill="#047857" letter-spacing="0.4">OPEN FOR HIRING</text>
 
-  <!-- Left Side: Profile Text (starts cleanly at x=45 with max width ~430px) -->
-  <g transform="translate(45, 38)">
-    <!-- Status Tag -->
-    <rect x="0" y="0" width="135" height="20" rx="10" class="tag-border" />
-    <circle cx="10" cy="10" r="3.5" fill="#06b6d4" class="pulse-dot" />
-    <text x="22" y="13.5" class="font-mono tag">OPEN_TO_WORK</text>
-  </g>
-  
-  <!-- Name Title -->
-  <text x="45" y="92" class="font-sans title">JOHN MARK CAYABYAB</text>
-  
-  <!-- Subtitle -->
-  <text x="45" y="120" class="font-sans subtitle">Full-Stack Developer &#x2022; Systems Architect &#x2022; UI/UX Designer</text>
-  
-  <!-- Description -->
-  <text x="45" y="148" class="font-sans desc">CS Graduate (GWA 1.65) with production deployment experience.</text>
-  <text x="45" y="168" class="font-sans desc">Building automated systems, web apps, and AI-integrated workflows.</text>
-
-  <!-- Location & Email badges -->
-  <g transform="translate(45, 188)">
-    <rect x="0" y="0" width="105" height="18" rx="9" fill="#1e1b4b" stroke="#2e2252" stroke-width="1" />
-    <circle cx="10" cy="9" r="2.5" fill="#10b981" class="pulse-dot" />
-    <text x="20" y="12.5" class="font-mono" font-size="8.5" fill="#94a3b8">NCR, Philippines</text>
-  </g>
-  <g transform="translate(160, 188)">
-    <rect x="0" y="0" width="135" height="18" rx="9" fill="#1e1b4b" stroke="#2e2252" stroke-width="1" />
-    <circle cx="10" cy="9" r="2.5" fill="#facc15" />
-    <text x="20" y="12.5" class="font-mono" font-size="8.5" fill="#94a3b8">jcayabyab655@gmail</text>
+    <rect x="176" y="0" width="214" height="24" rx="12" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" />
+    <text x="283" y="15.5" class="font-mono" font-size="10" font-weight="600" fill="#4b5563" text-anchor="middle">NCR, PH · REMOTE / ON-SITE</text>
   </g>
 
-  <!-- Right Side: Bento System Architecture Visualization (x=505 to x=755) -->
-  <g transform="translate(505, 24)">
-    <!-- Glassmorphic Container Panel -->
-    <rect x="0" y="0" width="250" height="192" rx="12" class="panel-bg" />
-    
-    <!-- Panel Header -->
-    <rect x="0" y="0" width="250" height="26" rx="12" fill="#1b1635" opacity="0.9" />
-    <circle cx="12" cy="13" r="3" fill="#ef4444" />
-    <circle cx="22" cy="13" r="3" fill="#f59e0b" />
-    <circle cx="32" cy="13" r="3" fill="#10b981" />
-    <text x="238" y="17" class="font-mono" font-size="9" fill="#64748b" text-anchor="end">SYS_ARCH_v2.0</text>
-    <line x1="0" y1="26" x2="250" y2="26" stroke="#2e2252" stroke-width="1.2" />
+  <!-- Name & Introduction -->
+  <text x="40" y="92" class="font-sans" font-size="31" font-weight="800" fill="#111827" letter-spacing="-0.6">John Mark Cayabyab</text>
+  <text x="40" y="118" class="font-sans" font-size="14" font-weight="600" fill="#374151">Full-Stack Software Engineer  ·  @Tofuwho</text>
 
-    <!-- 1. Client / UI Node -->
-    <g transform="translate(14, 56)">
-      <rect x="0" y="0" width="60" height="42" rx="4" class="node node-active-cyan" />
-      <line x1="0" y1="10" x2="60" y2="10" stroke="#06b6d4" stroke-width="0.8" />
-      <circle cx="5" cy="5" r="1.5" fill="#06b6d4" />
-      <circle cx="10" cy="5" r="1.5" fill="#06b6d4" />
-      <rect x="6" y="16" width="28" height="3" rx="1.5" fill="#06b6d4" opacity="0.6" />
-      <rect x="6" y="24" width="38" height="3" rx="1.5" fill="#2e2252" />
-      <rect x="6" y="32" width="18" height="3" rx="1.5" fill="#2e2252" />
-      <text x="30" y="52" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">CLIENT_UI</text>
+  <text x="40" y="146" class="font-sans" font-size="12.5" fill="#4b5563">Building calm, reliable web apps, data workflows, and everyday tools</text>
+  <text x="40" y="165" class="font-sans" font-size="12.5" fill="#4b5563">focused on clean architecture, maintainable code, and real-world use.</text>
+
+  <!-- Calm Specialty Pills -->
+  <g transform="translate(40, 184)">
+    <rect x="0" y="0" width="144" height="26" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="72" y="17" class="font-mono" font-size="10.2" font-weight="600" fill="#374151" text-anchor="middle">Python &amp; TypeScript</text>
+
+    <rect x="154" y="0" width="154" height="26" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="231" y="17" class="font-mono" font-size="10.2" font-weight="600" fill="#374151" text-anchor="middle">Full-Stack &amp; APIs</text>
+
+    <rect x="318" y="0" width="142" height="26" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+    <text x="389" y="17" class="font-mono" font-size="10.2" font-weight="600" fill="#374151" text-anchor="middle">Data &amp; Search UI</text>
+  </g>
+
+  <!-- Right Panel: Clean Selected Work Card -->
+  <g transform="translate(566, 26)">
+    <rect x="0" y="0" width="274" height="186" rx="14" fill="url(#inner-panel)" stroke="#e5e7eb" stroke-width="1.2" />
+
+    <circle cx="18" cy="20" r="3.2" fill="#10b981" class="pulse-dot" />
+    <text x="28" y="23.5" class="font-mono" font-size="9.8" font-weight="700" fill="#374151" letter-spacing="0.5">SELECTED BUILDS</text>
+    <text x="256" y="23.5" class="font-mono" font-size="9.5" font-weight="600" fill="#6b7280" text-anchor="end">2026</text>
+    <line x1="16" y1="36" x2="258" y2="36" stroke="#e5e7eb" stroke-width="1" />
+
+    <!-- Row 1 -->
+    <g transform="translate(14, 46)">
+      <rect x="0" y="0" width="246" height="39" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" />
+      <text x="12" y="16.5" class="font-sans" font-size="11.5" font-weight="700" fill="#111827">Data-Assist</text>
+      <text x="234" y="16.5" class="font-mono" font-size="8.8" font-weight="600" fill="#4b5563" text-anchor="end">LATEST</text>
+      <text x="12" y="31" class="font-sans" font-size="10" fill="#6b7280">Audited CSV &amp; Excel reporting</text>
     </g>
 
-    <!-- 2. Gateway / API Router -->
-    <g transform="translate(138, 42)">
-      <rect x="0" y="0" width="96" height="52" rx="4" class="node node-active-gold" />
-      <rect x="6" y="8" width="84" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
-      <circle cx="84" cy="12" r="1.8" fill="#facc15" />
-      <line x1="12" y1="12" x2="64" y2="12" stroke="#facc15" stroke-dasharray="2 2" stroke-width="1" />
-
-      <rect x="6" y="22" width="84" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
-      <circle cx="84" cy="26" r="1.8" fill="#10b981" class="pulse-dot" />
-      <line x1="12" y1="26" x2="68" y2="26" stroke="#10b981" stroke-width="1" />
-
-      <rect x="6" y="36" width="84" height="8" rx="1.5" fill="#0f0c24" stroke="#2e2252" stroke-width="0.8" />
-      <circle cx="84" cy="40" r="1.8" fill="#06b6d4" />
-      <line x1="12" y1="40" x2="52" y2="40" stroke="#06b6d4" stroke-dasharray="1 1" stroke-width="1" />
-      
-      <text x="48" y="62" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">API_SERVER</text>
+    <!-- Row 2 -->
+    <g transform="translate(14, 92)">
+      <rect x="0" y="0" width="246" height="39" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" />
+      <text x="12" y="16.5" class="font-sans" font-size="11.5" font-weight="700" fill="#111827">ThesisLibrary</text>
+      <text x="234" y="16.5" class="font-mono" font-size="8.8" font-weight="700" fill="#047857" text-anchor="end">LIVE DEMO</text>
+      <text x="12" y="31" class="font-sans" font-size="10" fill="#6b7280">Hybrid PDF search &amp; OPAC</text>
     </g>
 
-    <!-- 3. DB Storage Node -->
-    <g transform="translate(68, 126)">
-      <ellipse cx="24" cy="6" rx="16" ry="4" fill="#1a153b" stroke="#a78bfa" stroke-width="1.2" />
-      <path d="M 8,6 L 8,16 A 16,4 0 0 0 40,16 L 40,6" fill="#1a153b" stroke="#a78bfa" stroke-width="1.2" />
-      <path d="M 8,16 A 16,4 0 0 0 40,16" fill="none" stroke="#a78bfa" stroke-dasharray="2 2" stroke-width="0.8" />
-      <path d="M 8,16 L 8,26 A 16,4 0 0 0 40,26 L 40,16" fill="#1a153b" stroke="#a78bfa" stroke-width="1.2" />
-      <text x="24" y="38" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">DB_STORE</text>
+    <!-- Row 3 -->
+    <g transform="translate(14, 138)">
+      <rect x="0" y="0" width="246" height="39" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" />
+      <text x="12" y="16.5" class="font-sans" font-size="11.5" font-weight="700" fill="#111827">app-cse-public-demo</text>
+      <text x="234" y="16.5" class="font-mono" font-size="8.8" font-weight="700" fill="#047857" text-anchor="end">LIVE DEMO</text>
+      <text x="12" y="31" class="font-sans" font-size="10" fill="#6b7280">Procurement RBAC sandbox</text>
     </g>
-
-    <!-- 4. AI/LLM Node -->
-    <g transform="translate(172, 126)">
-      <rect x="0" y="0" width="58" height="28" rx="4" class="node node-active-cyan" />
-      <path d="M 6,22 L 18,12 L 28,18 L 40,8 L 52,14" fill="none" stroke="#06b6d4" stroke-width="1.2" />
-      <circle cx="52" cy="14" r="2" fill="#facc15" />
-      <text x="29" y="38" class="font-mono" font-size="8" fill="#94a3b8" text-anchor="middle">AI_LAYER</text>
-    </g>
-
-    <!-- Connective Flow Lines -->
-    <path d="M 74,77 Q 106,77 138,68" fill="none" class="link-flow link-flow-cyan" />
-    <path d="M 186,94 Q 140,115 104,136" fill="none" class="link-flow link-flow-purple" />
-    <path d="M 201,94 L 201,126" fill="none" class="link-flow link-flow-gold" />
-    <path d="M 68,142 Q 30,128 38,98" fill="none" stroke="#2e2252" stroke-dasharray="3 3" stroke-width="1.2" />
   </g>
 </svg>
